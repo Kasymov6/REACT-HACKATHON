@@ -18,6 +18,7 @@ const AuthContextProvider = ({ children }) => {
       email: e.target[0].value,
       password: e.target[2].value,
     };
+    console.log(e);
     try {
       const res = await axios.post(`${AUTH_API}/api/auth/register`, newUser);
       history.push("/login");

@@ -5,23 +5,23 @@ import videoMP4 from "../../assets/video/new-datejust-cover-video.webm";
 
 const Header = () => {
   return (
-    <div>
+    <div className="popi">
       <div className="header">
         <div className="container">
           <div className="main-header">
             <div className="left-side">
-              <h5>
+              <p className="header-p">
                 <a href="#">Меню</a>
-              </h5>
-              <h5>
+              </p>
+              <p className="header-p">
                 <a href="#">Часы</a>
-              </h5>
-              <h5>
+              </p>
+              <p className="header-p">
                 <a href="#">Мир Rolex</a>
-              </h5>
-              <h5>
+              </p>
+              <p className="header-p">
                 <a href="#">Поиск дистрибьютора</a>
-              </h5>
+              </p>
               <div className="mid">
                 <img src={rolexLogo} alt="rolex-logo" />
                 <h2>ROLEX</h2>
@@ -30,18 +30,32 @@ const Header = () => {
             <div className="right-side">
               <div className="icon">
                 <i className="fas fa-search"></i>
-                <h5>
+                <p className="header-p">
                   <a href="#">Поиск</a>
-                </h5>
+                </p>
               </div>
               <div className="icon">
                 <i className="far fa-heart"></i>
-                <h5>
+                <p className="header-p">
                   <a href="#">Ваша подборка</a>
-                </h5>
+                </p>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="right-side">
+        <div className="icon">
+          <i className="fas fa-search"></i>
+          <h5>
+            <a href="#">Поиск</a>
+          </h5>
+        </div>
+        <div className="icon">
+          <i className="far fa-heart"></i>
+          <h5>
+            <a href="#">Ваша подборка</a>
+          </h5>
         </div>
       </div>
       <div className="main-video">

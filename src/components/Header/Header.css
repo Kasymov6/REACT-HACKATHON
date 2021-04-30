@@ -7,9 +7,15 @@ body {
 .header {
   background-color: rgba(0, 0, 0, 0.5);
 }
+<<<<<<< HEAD
 .container {
   width: 1200px;
   margin: 0 auto;
+=======
+.container{
+    width: 1350px;
+    margin: 0 auto;
+>>>>>>> df96e184b120480e6a4d8635101e313ca06b4ebd
 }
 .left-side {
   display: flex;
@@ -27,9 +33,15 @@ body {
   display: flex;
   justify-content: space-between;
 }
+<<<<<<< HEAD
 h5 {
   margin-right: 20px;
   font-size: 16px;
+=======
+.header-p{
+    margin-right: 20px;
+    font-size: 16px;
+>>>>>>> df96e184b120480e6a4d8635101e313ca06b4ebd
 }
 a {
   color: white;
@@ -39,8 +51,13 @@ i {
   color: white;
   margin-right: 7px;
 }
+<<<<<<< HEAD
 .mid {
   margin-left: 100px;
+=======
+.mid{
+    margin-left: 220px;
+>>>>>>> df96e184b120480e6a4d8635101e313ca06b4ebd
 }
 .mid > img {
   width: 100px;
@@ -69,6 +86,7 @@ h2 {
   z-index: -100;
 }
 .content {
+<<<<<<< HEAD
   padding: 16px;
 }
 .sticky {
@@ -85,3 +103,63 @@ h2 {
   height: 620px;
 }
 /* ---------------END-VIDEO-------------------- */
+=======
+    padding: 16px;
+  }
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%
+  }
+  .sticky + .content {
+    padding-top: 102px;
+  }
+  .main-video{
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 620px;
+  }
+  /* ---------------END-VIDEO-------------------- */
+
+  /* --------------START-CARD-------------------- */
+.cart{
+    width: 392px;
+    height: 530px;
+    background-color: white;
+    border: 3px solid white;
+}
+.cart>img{
+    width: 392px;
+    text-align: center;
+}
+h3, .alert>p{
+    color: black;
+}
+h3{
+    margin-bottom: -20px;
+}
+.alert{
+    transition: 0.7s;
+    height: 100px;
+    margin-top: -25px;
+}
+.alert:hover{
+    margin-top: -30px;
+    transition: 0.7s;
+}
+.shop-btn{
+    margin: 5px 15px 0 0;
+    border-radius: 30px;
+    height: 40px;
+    border: none;
+    background-color: white;
+}
+.shoppingCart{
+    width: 20px;
+}
+.price-shop{
+    display: flex;
+    justify-content: space-between;
+}
+  /* --------------END-CARD-------------------- */
+>>>>>>> df96e184b120480e6a4d8635101e313ca06b4ebd

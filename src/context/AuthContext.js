@@ -11,22 +11,19 @@ const reducer = (state = INIT_STATE, action) => {
     }
 };
 const AuthContextProvider = ({ children }) => {
-    const [state, dispatch] = useReducer(reducer, INIT_STATE);
-    async function registerUser(e, history) {
-        e.preventDefault();
-        const newUser = {
-            email: e.target[0].value,
-            password: e.target[2].value,
-        };
-        try {
-            const res = await axios.post(
-                `${AUTH_API}/api/auth/register`,
-                newUser
-            );
-            history.push("/login");
-        } catch (err) {
-            console.log(err.response);
-        }
+  const [state, dispatch] = useReducer(reducer, INIT_STATE);
+  async function registerUser(e, history) {
+    e.preventDefault();
+    const newUser = {
+      email: e.target[0].value,
+      password: e.target[2].value,
+    };
+    console.log(e);
+    try {
+      const res = await axios.post(`${AUTH_API}/api/auth/register`, newUser);
+      history.push("/login");
+    } catch (err) {
+      console.log(err.response);
     }
 
     async function loginUser(e, history) {

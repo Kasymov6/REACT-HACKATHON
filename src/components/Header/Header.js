@@ -1,8 +1,9 @@
 import React from "react";
 import "./Header.css";
 import rolexLogo from "../../assets/image/Rolex-logo.png";
+import { Link } from "react-router-dom";
 
-const componentName = () => {
+const Header = () => {
     return (
         <div className="popi">
             <div className="header">
@@ -10,16 +11,18 @@ const componentName = () => {
                     <div className="main-header">
                         <div className="left-side">
                             <p className="header-p">
-                                <a href="#">Меню</a>
+                                <Link to="/">
+                                    <p>Meню</p>
+                                </Link>
                             </p>
                             <p className="header-p">
-                                <a href="#">Часы</a>
+                                <p>Часы</p>
                             </p>
                             <p className="header-p">
-                                <a href="#">Мир Rolex</a>
+                                <p>Мир ROLEX</p>
                             </p>
                             <p className="header-p">
-                                <a href="#">Поиск дистрибьютора</a>
+                                <p>Поиск дестрибьютера</p>
                             </p>
                             <div className="mid">
                                 <img src={rolexLogo} alt="rolex-logo" />
@@ -30,13 +33,13 @@ const componentName = () => {
                             <div className="icon">
                                 <i className="fas fa-search"></i>
                                 <p className="header-p">
-                                    <a href="#">Поиск</a>
+                                    <input placeholder="Поиск"></input>
                                 </p>
                             </div>
                             <div className="icon">
                                 <i className="far fa-heart"></i>
                                 <p className="header-p">
-                                    <a href="#">Ваша подборка</a>
+                                    <p>Ваша подборка</p>
                                 </p>
                             </div>
                         </div>
@@ -47,4 +50,4 @@ const componentName = () => {
     );
 };
 
-export default componentName;
+export default Header;

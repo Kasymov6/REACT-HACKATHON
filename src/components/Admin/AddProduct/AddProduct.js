@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import { productContext } from "../../../context/ProductContext";
-// import "./Addproducts.css";
 const AddProduct = () => {
   const [product, setProduct] = useState({
     title: "",
@@ -82,9 +82,11 @@ const AddProduct = () => {
         type="text"
         placeholder="Второе изображение"
       />
-      <button className="btn-add" onClick={handleClick}>
-        Добавить
-      </button>
+      <Link to="/home">
+        <button className="btn-add" onClick={handleClick}>
+          Добавить
+        </button>
+      </Link>
     </div>
   );
 };

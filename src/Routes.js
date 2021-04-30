@@ -6,6 +6,8 @@ import SignUp from "./components/SignUp/SignUp";
 import AuthContextProvider from "./context/AuthContext";
 import ProductContextProvider from "./context/ProductContext";
 import Header from "./components/Header/Header";
+import HomePage from "./components/HomePage/HomePage";
+
 const Routes = () => {
   return (
     <ProductContextProvider>
@@ -14,6 +16,7 @@ const Routes = () => {
           <Header />
           <Switch>
             <Route exact path="/admin" component={AddProduct} />
+            <Route exact path="/home" component={HomePage} />
             <Route exact path="/login" component={SignIn} />
             <Route exact path="/signup" component={SignUp} />
           </Switch>

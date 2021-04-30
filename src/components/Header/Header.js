@@ -44,20 +44,6 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className="right-side">
-        <div className="icon">
-          <i className="fas fa-search"></i>
-          <h5>
-            <a href="#">Поиск</a>
-          </h5>
-        </div>
-        <div className="icon">
-          <i className="far fa-heart"></i>
-          <h5>
-            <a href="#">Ваша подборка</a>
-          </h5>
-        </div>
-      </div>
       <div className="main-video">
         <video loop muted autoPlay className="fullscreen-bg__video">
           <source src={videoMP4} type="video/webm" />

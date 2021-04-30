@@ -1,20 +1,20 @@
 import React, { useContext, useEffect } from "react";
-import { topicContext } from "../../contexts/TopicContext";
-import TopicCard from "../TopicCard/TopicCard";
-import "./TopicList.css";
-const TopicList = () => {
-  const { getTopics, topicsData } = useContext(topicContext);
+import { productContext } from "../../context/ProductContext";
+import ProductCard from "./ProductCard";
+// import TopicCard from "../TopicCard/TopicCard";
+const ProductList = () => {
+  const { getProducts, productsData } = useContext(productContext);
   useEffect(() => {
-    getTopics();
+    getProducts();
   }, []);
 
   return (
     <div className="list">
-      {topicsData.map((item) => (
-        <TopicCard key={item.id} item={item} />
+      {productsData.map((item) => (
+        <ProductCard key={item.id} item={item} />
       ))}
     </div>
   );
 };
 
-export default TopicList;
+export default ProductList;

@@ -5,9 +5,9 @@
     position: relative;
     height: 100%;
     width: 100%;
-    padding-top:45%;
+    padding-top: 45%;
 }
- 
+
 .fullscreen-bg__video {
     position: absolute;
     top: 0;
@@ -17,18 +17,18 @@
 }
 .content {
     padding: 16px;
-  }
-  .sticky {
+}
+.sticky {
     position: fixed;
     top: 0;
-    width: 100%
-  }
-  .sticky + .content {
+    width: 100%;
+}
+.sticky + .content {
     padding-top: 102px;
-  }
-  .main-video{
+}
+.main-video {
     background-color: rgba(0, 0, 0, 0.5);
     width: 100%;
     height: 700px;
-  }
-  /* ---------------END-VIDEO-------------------- */
+}
+/* ---------------END-VIDEO-------------------- */

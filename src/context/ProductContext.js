@@ -1,21 +1,20 @@
-<<<<<<< HEAD
 import axios from "axios";
 import React, { useReducer } from "react";
 
-export const topicContext = React.createContext();
+export const productContext = React.createContext();
 
 const INIT_STATE = {
-  topicsData: [],
-  topicDetails: null,
+  productsData: [],
+  productDetails: null,
   searchData: [],
 };
 
 const reducer = (state = INIT_STATE, action) => {
   switch (action.type) {
-    case "GET_TOPICS":
-      return { ...state, topicsData: action.payload };
-    case "GET_TOPIC_DETAILS":
-      return { ...state, topicDetails: action.payload };
+    case "GET_PRODUCTS":
+      return { ...state, productsData: action.payload };
+    case "GET_PRODUCT_DETAILS":
+      return { ...state, productDetails: action.payload };
     case "SEARCH":
       return { ...state, searchData: action.payload };
     default:
@@ -23,81 +22,56 @@ const reducer = (state = INIT_STATE, action) => {
   }
 };
 
-const TopicContextProvider = ({ children }) => {
+const ProductContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
-  function postNewTopic(topic) {
-    axios.post("http://localhost:8000/topics", topic);
+  function postNewProduct(product) {
+    axios.post("http://localhost:8000/products", product);
   }
-  async function getTopics() {
-    let { data } = await axios.get("http://localhost:8000/topics");
+  async function getProducts() {
+    let { data } = await axios.get("http://localhost:8000/products");
     dispatch({
-      type: "GET_TOPICS",
+      type: "GET_PRODUCTS",
       payload: data,
     });
   }
-  async function getTopicDetails(id) {
-    let { data } = await axios.get(`http://localhost:8000/topics/${id}`);
+  async function getProductDetails(id) {
+    let { data } = await axios.get(`http://localhost:8000/products/${id}`);
     dispatch({
-      type: "GET_TOPIC_DETAILS",
+      type: "GET_PRODUCT_DETAILS",
       payload: data,
     });
   }
 
-  async function saveTopic(id, newTopic) {
-    await axios.patch(`http://localhost:8000/topics/${id}`, newTopic);
-    getTopicDetails(id);
+  async function saveProduct(id, newProduct) {
+    await axios.patch(`http://localhost:8000/products/${id}`, newProduct);
+    getProductDetails(id);
   }
   async function search(value) {
-    let { data } = await axios.get(`http://localhost:8000/topics?q=${value}`);
+    let { data } = await axios.get(`http://localhost:8000/products?q=${value}`);
     dispatch({
       type: "SEARCH",
       payload: data,
     });
   }
-  async function deleteTopic(id) {
-    return await axios.delete(`http://localhost:8000/topics/${id}`);
+  async function deleteProduct(id) {
+    return await axios.delete(`http://localhost:8000/products/${id}`);
   }
   return (
-    <topicContext.Provider
+    <productContext.Provider
       value={{
-        topicsData: state.topicsData,
-        topicDetails: state.topicDetails,
+        productsData: state.productsData,
+        productDetails: state.productDetails,
         searchData: state.searchData,
-        postNewTopic,
-        getTopics,
-        getTopicDetails,
-        saveTopic,
+        postNewProduct,
+        getProducts,
+        getProductDetails,
+        saveProduct,
         search,
-        deleteTopic,
+        deleteProduct,
       }}
     >
       {children}
-    </topicContext.Provider>
+    </productContext.Provider>
   );
 };
-export default TopicContextProvider;
-=======
-import React, { useReducer } from 'react';
-
-export const topicContext = React.createContext();
-const INIT_STATE = { 
-    theme:false
-}
-
-const reducer = (state=INIT_STATE, action) =>{
-    switch(action.type){
-        default: return state
-    }
-}
-const TopicContextProvider = ({ children }) => {
-    const [state, dispatch] = useReducer(reducer, INIT_STATE)
-
-    
-    return (
-        <topicContext.Provider value={{}}>
-            {children}
-        </topicContext.Provider>
-    )
-}
-export default TopicContextProvider;
->>>>>>> a0240f3cf3db0ec4c65dc73ef07ad5be4b77dcf3
+export default ProductContextProvider;

@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
-import { topicContext } from "../../../context/ProductContext";
-// import "./AddTopics.css";
+import { productContext } from "../../../context/ProductContext";
+// import "./Addproducts.css";
 const AddProduct = () => {
-  const [topic, setTopic] = useState({
+  const [product, setProduct] = useState({
     title: "",
     description: "",
     img: "",
@@ -10,19 +10,19 @@ const AddProduct = () => {
     secondDescription: "",
     secondImg: "",
   });
-  const { postNewTopic } = useContext(topicContext);
+  const { postNewProduct } = useContext(productContext);
 
   const handleValues = (e) => {
-    let newTopic = {
-      ...topic,
+    let newProduct = {
+      ...product,
       [e.target.name]: e.target.value,
     };
-    setTopic(newTopic);
+    setProduct(newProduct);
   };
 
   const handleClick = () => {
-    postNewTopic(topic);
-    setTopic({
+    postNewProduct(product);
+    setProduct({
       title: "",
       description: "",
       img: "",
@@ -36,7 +36,7 @@ const AddProduct = () => {
     <div className="inps">
       <input
         className="inp-add"
-        value={topic.title}
+        value={product.title}
         name="title"
         onChange={handleValues}
         type="text"
@@ -44,7 +44,7 @@ const AddProduct = () => {
       />
       <input
         className="inp-add"
-        value={topic.description}
+        value={product.description}
         name="description"
         onChange={handleValues}
         type="text"
@@ -52,7 +52,7 @@ const AddProduct = () => {
       />
       <input
         className="inp-add"
-        value={topic.img}
+        value={product.img}
         name="img"
         onChange={handleValues}
         type="text"
@@ -60,7 +60,7 @@ const AddProduct = () => {
       />
       <input
         className="inp-add"
-        value={topic.subTitle}
+        value={product.subTitle}
         name="subTitle"
         onChange={handleValues}
         type="text"
@@ -68,7 +68,7 @@ const AddProduct = () => {
       />
       <input
         className="inp-add"
-        value={topic.secondDescription}
+        value={product.secondDescription}
         name="secondDescription"
         onChange={handleValues}
         type="text"
@@ -76,7 +76,7 @@ const AddProduct = () => {
       />
       <input
         className="inp-add"
-        value={topic.secondImg}
+        value={product.secondImg}
         name="secondImg"
         onChange={handleValues}
         type="text"

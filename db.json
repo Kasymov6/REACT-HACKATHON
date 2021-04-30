@@ -1,5 +1,5 @@
 {
-  "topics": [
+  "products": [
     {
       "title": "s",
       "description": "s",
@@ -26,6 +26,15 @@
       "secondDescription": "ss",
       "secondImg": "ss",
       "id": 3
+    },
+    {
+      "title": "ss",
+      "description": "sss",
+      "img": "sss",
+      "subTitle": "sss",
+      "secondDescription": "sss",
+      "secondImg": "sss",
+      "id": 4
     }
   ]
 }

@@ -4,12 +4,14 @@ import AddProduct from "./components/Admin/AddProduct/AddProduct";
 import SignIn from "./components/SignIn/SignIn";
 import SignUp from "./components/SignUp/SignUp";
 import AuthContextProvider from "./context/AuthContext";
-import TopicContextProvider from "./context/ProductContext";
+import ProductContextProvider from "./context/ProductContext";
+import Header from "./components/Header/Header";
 const Routes = () => {
   return (
-    <TopicContextProvider>
+    <ProductContextProvider>
       <AuthContextProvider>
         <BrowserRouter>
+          <Header />
           <Switch>
             <Route exact path="/admin" component={AddProduct} />
             <Route exact path="/login" component={SignIn} />
@@ -17,7 +19,7 @@ const Routes = () => {
           </Switch>
         </BrowserRouter>
       </AuthContextProvider>
-    </TopicContextProvider>
+    </ProductContextProvider>
   );
 };
 

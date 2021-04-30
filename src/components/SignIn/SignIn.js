@@ -13,6 +13,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { authContext } from "../../context/AuthContext";
+import './SignIn.css'
 
 function Copyright() {
   return (
@@ -41,6 +42,7 @@ const useStyles = makeStyles((theme) => ({
   form: {
     width: "100%", // Fix IE 11 issue.
     marginTop: theme.spacing(1),
+    // backgroundColor: "white"
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
@@ -51,7 +53,8 @@ export default function SignIn(props) {
   const classes = useStyles();
   const { loginUser } = useContext(authContext);
   return (
-    <Container component="main" maxWidth="xs">
+    <div className="back" style={{zIndex:100}}>
+    <Container className="signIn" component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
@@ -118,5 +121,6 @@ export default function SignIn(props) {
         <Copyright />
       </Box>
     </Container>
+      </div>
   );
 }

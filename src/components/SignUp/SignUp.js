@@ -13,6 +13,8 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { authContext } from "../../context/AuthContext";
+import videoMP4 from "../../assets/video/new-datejust-cover-video.webm"
+
 
 function Copyright() {
   return (
@@ -29,16 +31,16 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: "100vh",
+    height: "73vh",
   },
   image: {
-    backgroundImage: "url(https://source.unsplash.com/random)",
+    backgroundImage: "url(https://content.rolex.com//dam/media/wallpapers/gmt-master-ii/m126711chnr-0002_1280x768.jpg)",
     backgroundRepeat: "no-repeat",
     backgroundColor:
       theme.palette.type === "light"
         ? theme.palette.grey[50]
         : theme.palette.grey[900],
-    backgroundSize: "cover",
+    backgroundSize: "contain",
     backgroundPosition: "center",
   },
   paper: {

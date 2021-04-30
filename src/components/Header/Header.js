@@ -1,7 +1,6 @@
 import React from "react";
 import "./Header.css"
 import rolexLogo from "../../assets/image/Rolex-logo.png"
-import videoMP4 from "../../assets/video/new-datejust-cover-video.webm"
 import shoppingCart from "../../assets/image/shopping.svg"
 
 const componentName = () => {
@@ -35,13 +34,8 @@ const componentName = () => {
                   </div>
                 </div>
             </div>
-            <div  className="main-video">
-            <video loop muted autoPlay className="fullscreen-bg__video">
-                <source src={videoMP4} type="video/webm"/>
-            </video>
-            </div>
             {/* ---------------------START-CARD--------------------- */}
-            <div className="cart">
+            {/* <div className="cart">
               <img src="https://content.rolex.com/dam/new-watches-2021/homepage/roller/all-watches/watches_0003_m126200-0020-datejust.jpg?imwidth=550"/>
               <div className="alert">
                 <h3>DATEJUST</h3>
@@ -53,7 +47,7 @@ const componentName = () => {
                 </button>
                 </div>
               </div>
-            </div>
+            </div> */}
             {/* ----------------------END-CARD-------------------- */} 
   </div>
   )

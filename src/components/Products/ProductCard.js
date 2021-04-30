@@ -1,13 +1,25 @@
 import React from "react";
-// import "./TopicCard.css";
+import "./ProductCard.css";
 import { Link } from "react-router-dom";
+import shoppingCart from "../../assets/image/shopping.svg";
+
 const ProductCard = (props) => {
   return (
-    <Link to={`/details/${props.item.id}`}>
-      <div className="card">
-        <p>{props.item.title}</p>
+    <div className="cart">
+      <img src={props.item.img} />
+      <div className="alert">
+        <h3>{props.item.title}</h3>
+        <div class="price-shop">
+          <p>{props.item.price}$</p>
+          <Link to={`/details/${props.item.id}`}>
+            <button>Подробнее</button>
+          </Link>
+          <button className="shop-btn">
+            <img className="shoppingCart" src={shoppingCart} />
+          </button>
+        </div>
       </div>
-    </Link>
+    </div>
   );
 };
 

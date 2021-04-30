@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
 import { productContext } from "../../../context/ProductContext";
+
 const AddProduct = () => {
   const [product, setProduct] = useState({
     title: "",
@@ -9,6 +9,7 @@ const AddProduct = () => {
     subTitle: "",
     secondDescription: "",
     secondImg: "",
+    price: "",
   });
   const { postNewProduct } = useContext(productContext);
 
@@ -29,6 +30,7 @@ const AddProduct = () => {
       subTitle: "",
       secondDescription: "",
       secondImg: "",
+      price: "",
     });
   };
 
@@ -82,11 +84,17 @@ const AddProduct = () => {
         type="text"
         placeholder="Второе изображение"
       />
-      <Link to="/home">
-        <button className="btn-add" onClick={handleClick}>
-          Добавить
-        </button>
-      </Link>
+      <input
+        className="inp-add"
+        value={product.price}
+        name="price"
+        onChange={handleValues}
+        type="text"
+        placeholder="Цена"
+      />
+      <button className="btn-add" onClick={handleClick}>
+        Добавить
+      </button>
     </div>
   );
 };

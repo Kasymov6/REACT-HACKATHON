@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { productContext } from "../../context/ProductContext";
 import ProductCard from "./ProductCard";
-// import TopicCard from "../TopicCard/TopicCard";
+import "./ProductList.css";
 const ProductList = () => {
   const { getProducts, productsData } = useContext(productContext);
   useEffect(() => {
@@ -9,10 +9,12 @@ const ProductList = () => {
   }, []);
 
   return (
-    <div className="list">
-      {productsData.map((item) => (
-        <ProductCard key={item.id} item={item} />
-      ))}
+    <div className="wrap">
+      <div className="list">
+        {productsData.map((item) => (
+          <ProductCard key={item.id} item={item} />
+        ))}
+      </div>
     </div>
   );
 };

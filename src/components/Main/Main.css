@@ -1,38 +1,34 @@
-<<<<<<< HEAD
-
-=======
 /* ---------------START-VIDEO-------------------- */
 .fullscreen-bg {
-    overflow: hidden;
-    z-index: -100;
-    position: relative;
-    height: 100%;
-    width: 100%;
-    padding-top:45%;
+  overflow: hidden;
+  z-index: -100;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  padding-top: 45%;
 }
- 
+
 .fullscreen-bg__video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: -100;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -100;
 }
 .content {
-    padding: 16px;
-  }
-  .sticky {
-    position: fixed;
-    top: 0;
-    width: 100%
-  }
-  .sticky + .content {
-    padding-top: 102px;
-  }
-  .main-video{
-    background-color: rgba(0, 0, 0, 0.5);
-    width: 100%;
-    height: 700px;
-  }
-  /* ---------------END-VIDEO-------------------- */
->>>>>>> 098889a2e4e56d1d098510ad7d58bc7b6b20c2e0
+  padding: 16px;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.sticky + .content {
+  padding-top: 102px;
+}
+.main-video {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 700px;
+}
+/* ---------------END-VIDEO-------------------- */

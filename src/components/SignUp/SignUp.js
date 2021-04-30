@@ -13,6 +13,8 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { authContext } from "../../context/AuthContext";
+import videoMP4 from "../../assets/video/new-datejust-cover-video.webm"
+
 
 function Copyright() {
     return (
@@ -28,6 +30,38 @@ function Copyright() {
 }
 
 const useStyles = makeStyles((theme) => ({
+
+  root: {
+    height: "73vh",
+  },
+  image: {
+    backgroundImage: "url(https://content.rolex.com//dam/media/wallpapers/gmt-master-ii/m126711chnr-0002_1280x768.jpg)",
+    backgroundRepeat: "no-repeat",
+    backgroundColor:
+      theme.palette.type === "light"
+        ? theme.palette.grey[50]
+        : theme.palette.grey[900],
+    backgroundSize: "contain",
+    backgroundPosition: "center",
+  },
+  paper: {
+    margin: theme.spacing(8, 4),
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  avatar: {
+    margin: theme.spacing(1),
+    backgroundColor: theme.palette.secondary.main,
+  },
+  form: {
+    width: "100%", // Fix IE 11 issue.
+    marginTop: theme.spacing(1),
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+  },
+=======
     root: {
         height: "100vh",
     },
@@ -58,6 +92,7 @@ const useStyles = makeStyles((theme) => ({
     submit: {
         margin: theme.spacing(3, 0, 2),
     },
+
 }));
 
 export default function SignUp(props) {

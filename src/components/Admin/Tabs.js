@@ -1,12 +1,10 @@
 import React, { useContext, useState } from "react";
-import ProductList from "../Products/ProductList";
 import AddProduct from "./AddProduct/AddProduct";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
-
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import AdminProductList from "./AdminProductList/AdminProductList";

@@ -2,7 +2,9 @@ import axios from "axios";
 import React, { useReducer } from "react";
 import { AUTH_API } from "../components/helpers/constants";
 export const authContext = React.createContext();
-const INIT_STATE = {};
+const INIT_STATE = {
+  user: null,
+};
 const reducer = (state = INIT_STATE, action) => {
   switch (action.type) {
     case "...":

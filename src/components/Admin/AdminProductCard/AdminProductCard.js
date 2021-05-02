@@ -1,9 +1,8 @@
 import "./AdminProductCard.css";
 import React, { useContext, useEffect, useState } from "react";
-import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom";
 import { productContext } from "../../../context/ProductContext";
-
-const AdminProductCard = (props) => {
+const ProductCard = (props) => {
   const id = props.item.id;
   const history = useHistory();
   const {
@@ -79,37 +78,41 @@ const AdminProductCard = (props) => {
                     </div>
                   ) : (
                     <>
-                      <h1>{productDetails.title}</h1>
-                      <p className="box-desc">{productDetails.description}</p>
-                      <img src={productDetails.img} alt="product-img" />
-                      <h2>{productDetails.subTitle}</h2>
-                      <p className="box-desc">
-                        {productDetails.secondDescription}
-                      </p>
-                      <img src={productDetails.secondImg} />
-                      <p className="box-desc">{productDetails.price}</p>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>Title</th>
+                            <th>description</th>
+                            <th>subTitle</th>
+                            <th>Image</th>
+                            <th>secondDescription</th>
+                            <th>secondImg</th>
+                            <th>price</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>{props.item.title}</td>
+                            <td>{props.item.description}</td>
+                            <td>{props.item.subTitle}</td>
+                            <td>{props.item.img}</td>
+                            <td>{props.item.secondDescription}</td>
+                            <td>{props.item.secondImg}</td>
+                            <td>{props.item.price}</td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </>
                   )}
                   <div className="details_btns">
                     {editStatus ? (
-                      <button onClick={handleSave}>
-                        <img
-                          src="https://www.freeiconspng.com/uploads/edit-icon-orange-pencil-0.png"
-                          alt="btn-icon"
-                        />
-                        Сохранить
-                      </button>
+                      <button onClick={handleSave}>Сохранить</button>
                     ) : (
                       <button onClick={() => setEditStatus(true)}>
-                        <img
-                          src="https://www.freeiconspng.com/uploads/edit-icon-orange-pencil-0.png"
-                          alt="btn-icon"
-                        />
                         Редактировать
                       </button>
                     )}
                     <button onClick={handleDelete} className="btn-delete">
-                      <img src="https://icons-for-free.com/iconfiles/png/512/delete+remove+trash+trash+bin+trash+can+icon-1320073117929397588.png" />
                       Удалить
                     </button>
                   </div>
@@ -124,4 +127,5 @@ const AdminProductCard = (props) => {
     </div>
   );
 };
-export default AdminProductCard;
+
+export default ProductCard;

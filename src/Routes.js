@@ -10,6 +10,7 @@ import ProductContextProvider, {
   productContext,
 } from "./context/ProductContext";
 import Admin from "./components/Admin/Tabs";
+import ProductDetails from "./components/Products/ProductDetails";
 const Routes = () => {
   return (
     <ProductContextProvider>
@@ -21,6 +22,7 @@ const Routes = () => {
             <Route exact path="/admin" component={Admin} />
             <Route exact path="/login" component={SignIn} />
             <Route exact path="/signup" component={SignUp} />
+            <Route exact path="/details/:id" component={ProductDetails} />
           </Switch>
         </BrowserRouter>
       </AuthContextProvider>

@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import { productContext } from "../../context/ProductContext";
 
 const ProductDetails = (props) => {
-  const id = props.item.id;
+  const { getProductDetails, productDetails } = useContext(productContext);
+  const id = props.match.params.id;
   useEffect(() => {
     getProductDetails(id);
   }, []);
@@ -12,39 +14,7 @@ const ProductDetails = (props) => {
           <div className="container">
             <div className="main-left">
               <div className="main-box">
-                {editStatus ? (
-                  <div className="edit-textareas">
-                    <textarea name="title" onChange={handleValue}>
-                      {productDetails.title}
-                    </textarea>
-                    <textarea
-                      name="description"
-                      onChange={handleValue}
-                      className="box-desc"
-                    >
-                      {productDetails.description}
-                    </textarea>
-                    <textarea name="img" onChange={handleValue}>
-                      {productDetails.img}
-                    </textarea>
-                    <textarea name="subTitle" onChange={handleValue}>
-                      {productDetails.subTitle}
-                    </textarea>
-                    <textarea
-                      name="secondDescription"
-                      onChange={handleValue}
-                      className="box-desc"
-                    >
-                      {productDetails.secondDescription}
-                    </textarea>
-                    <textarea name="secondImg" onChange={handleValue}>
-                      {productDetails.secondImg}
-                    </textarea>
-                    <textarea name="price" onChange={handleValue}>
-                      {productDetails.price}
-                    </textarea>
-                  </div>
-                ) : (
+                {productDetails ? (
                   <>
                     <h1>{productDetails.title}</h1>
                     <p className="box-desc">{productDetails.description}</p>
@@ -54,9 +24,11 @@ const ProductDetails = (props) => {
                       {productDetails.secondDescription}
                     </p>
                     <img src={productDetails.secondImg} />
+                    <p>{productDetails.price}$</p>
                   </>
+                ) : (
+                  "details"
                 )}
-                <div className="details_btns"></div>
               </div>
             </div>
           </div>

@@ -1,14 +1,34 @@
 {
   "products": [
     {
-      "title": "Explorer",
-      "description": "ssss",
-      "img": "https://content.rolex.com/dam/new-watches-2021/homepage/roller/all-watches/watches_0004_m124273-0001-explorer.jpg?imwidth=550",
+      "title": "kani",
+      "description": "final test",
+      "img": "",
+      "subTitle": "",
+      "secondDescription": "",
+      "secondImg": "",
+      "price": "5555",
+      "id": 4
+    },
+    {
+      "title": "new item 22222",
+      "description": "new ",
+      "img": "",
+      "subTitle": "",
+      "secondDescription": "",
+      "secondImg": "",
+      "price": "444444444",
+      "id": 5
+    },
+    {
+      "title": "sss",
+      "description": "sss",
+      "img": "sss",
       "subTitle": "",
       "secondDescription": "",
       "secondImg": "",
       "price": "",
-      "id": 3
+      "id": 6
     }
   ]
 }

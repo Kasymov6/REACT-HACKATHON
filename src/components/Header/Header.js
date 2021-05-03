@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Header.css";
 import rolexLogo from "../../assets/image/Rolex-logo.png";
 import { Link } from "react-router-dom";
+import { authContext } from "../../context/AuthContext";
 
 const Header = () => {
+  const { isAuth } = useContext(authContext);
+
   return (
     <div className="popi">
       <div className="header">
@@ -36,6 +39,11 @@ const Header = () => {
                   <input placeholder="Поиск"></input>
                 </p>
               </div>
+              {/* {isAuth ? (
+                button{выйти}
+              ) : (
+                button{войти}
+              )} */}
               <div className="icon">
                 <i className="far fa-heart"></i>
                 <p className="header-p">

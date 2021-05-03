@@ -2,8 +2,8 @@ import "./AdminProductCard.css";
 import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { productContext } from "../../../context/ProductContext";
-const ProductCard = (props) => {
-  const id = props.item.id;
+const ProductCard = ({ item }) => {
+  const id = item.id;
   const history = useHistory();
   const {
     getProductDetails,
@@ -12,6 +12,7 @@ const ProductCard = (props) => {
     deleteProduct,
   } = useContext(productContext);
   const [editStatus, setEditStatus] = useState(false);
+
   const [editedProduct, setEditedProduct] = useState({});
 
   const handleValue = (e) => {
@@ -23,9 +24,14 @@ const ProductCard = (props) => {
     setEditStatus(false);
   };
 
-  useEffect(() => {
+  const handleEdit = (id) => {
+    setEditStatus(true);
     getProductDetails(id);
-  }, [editStatus, id]);
+  };
+
+  // useEffect(() => {
+  //   getProductDetails(id);
+  // }, [editStatus, id]);
 
   const handleDelete = () => {
     deleteProduct(id).then(() => {
@@ -34,96 +40,96 @@ const ProductCard = (props) => {
   };
   return (
     <div>
-      {productDetails ? (
-        <div>
-          <div className="wraper">
-            <div className="container">
-              <div className="main-left">
-                <div className="main-box">
-                  {editStatus ? (
-                    <div className="edit-textareas">
-                      <textarea name="title" onChange={handleValue}>
-                        {productDetails.title}
-                      </textarea>
-                      <textarea
-                        name="description"
-                        onChange={handleValue}
-                        className="box-desc"
-                      >
-                        {productDetails.description}
-                      </textarea>
-                      <textarea name="img" onChange={handleValue}>
-                        {productDetails.img}
-                      </textarea>
-                      <textarea name="subTitle" onChange={handleValue}>
-                        {productDetails.subTitle}
-                      </textarea>
-                      <textarea
-                        name="secondDescription"
-                        onChange={handleValue}
-                        className="box-desc"
-                      >
-                        {productDetails.secondDescription}
-                      </textarea>
-                      <textarea name="secondImg" onChange={handleValue}>
-                        {productDetails.secondImg}
-                      </textarea>
-                      <textarea
-                        name="price"
-                        onChange={handleValue}
-                        className="box-desc"
-                      >
-                        {productDetails.price}
-                      </textarea>
-                    </div>
-                  ) : (
-                    <>
-                      <table>
-                        <thead>
-                          <tr>
-                            <th>Title</th>
-                            <th>description</th>
-                            <th>subTitle</th>
-                            <th>Image</th>
-                            <th>secondDescription</th>
-                            <th>secondImg</th>
-                            <th>price</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>{props.item.title}</td>
-                            <td>{props.item.description}</td>
-                            <td>{props.item.subTitle}</td>
-                            <td>{props.item.img}</td>
-                            <td>{props.item.secondDescription}</td>
-                            <td>{props.item.secondImg}</td>
-                            <td>{props.item.price}</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </>
-                  )}
-                  <div className="details_btns">
-                    {editStatus ? (
-                      <button onClick={handleSave}>Сохранить</button>
-                    ) : (
-                      <button onClick={() => setEditStatus(true)}>
-                        Редактировать
-                      </button>
-                    )}
-                    <button onClick={handleDelete} className="btn-delete">
-                      Удалить
-                    </button>
+      {/* {productDetails ? ( */}
+      <div>
+        <div className="wraper">
+          <div className="container">
+            <div className="main-left">
+              <div className="main-box">
+                {editStatus ? (
+                  <div className="edit-textareas">
+                    <textarea name="title" onChange={handleValue}>
+                      {item.title}
+                    </textarea>
+                    <textarea
+                      name="description"
+                      onChange={handleValue}
+                      className="box-desc"
+                    >
+                      {item.description}
+                    </textarea>
+                    <textarea name="img" onChange={handleValue}>
+                      {item.img}
+                    </textarea>
+                    <textarea name="subTitle" onChange={handleValue}>
+                      {item.subTitle}
+                    </textarea>
+                    <textarea
+                      name="secondDescription"
+                      onChange={handleValue}
+                      className="box-desc"
+                    >
+                      {item.secondDescription}
+                    </textarea>
+                    <textarea name="secondImg" onChange={handleValue}>
+                      {item.secondImg}
+                    </textarea>
+                    <textarea
+                      name="price"
+                      onChange={handleValue}
+                      className="box-desc"
+                    >
+                      {item.price}
+                    </textarea>
                   </div>
+                ) : (
+                  <>
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Title</th>
+                          <th>description</th>
+                          <th>subTitle</th>
+                          <th>Image</th>
+                          <th>secondDescription</th>
+                          <th>secondImg</th>
+                          <th>price</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <h1>{item.title}</h1>
+                          <p className="box-desc">{item.description}</p>
+                          <img src={item.img} alt="product-img" />
+                          <h2>{item.subTitle}</h2>
+                          <p className="box-desc">{item.secondDescription}</p>
+                          <img src={item.secondImg} />
+                          <p>{item.price}$</p>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </>
+                )}
+                <div className="details_btns">
+                  {editStatus ? (
+                    <button onClick={handleSave}>Сохранить</button>
+                  ) : (
+                    <button onClick={() => handleEdit(item.id)}>
+                      Редактировать
+                    </button>
+                  )}
+                  <button onClick={handleDelete} className="btn-delete">
+                    Удалить
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      ) : (
+      </div>
+      ){/* : (
         "Details"
-      )}
+      )} */}
     </div>
   );
 };

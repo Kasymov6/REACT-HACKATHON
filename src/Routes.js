@@ -13,6 +13,7 @@ import Admin from "./components/Admin/Tabs";
 import ProductDetails from "./components/Products/ProductDetails";
 import PrivateRoute from "./components/PrivateRoute";
 import ProductList from "./components/Products/ProductList";
+import Footer from "./components/Footer/Footer";
 const Routes = () => {
   return (
     <ProductContextProvider>
@@ -29,6 +30,7 @@ const Routes = () => {
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/details/:id" component={ProductDetails} />
           </Switch>
+          <Footer />
         </BrowserRouter>
       </AuthContextProvider>
     </ProductContextProvider>

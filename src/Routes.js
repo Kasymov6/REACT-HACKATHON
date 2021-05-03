@@ -10,6 +10,8 @@ import ProductContextProvider, {
     productContext,
 } from "./context/ProductContext";
 import Admin from "./components/Admin/Tabs";
+import ProductDetails from "./components/Products/ProductDetails";
+import PrivateRoute from "./components/PrivateRoute";
 
 const Routes = () => {
     return (
@@ -19,9 +21,17 @@ const Routes = () => {
                     <Header />
                     <Switch>
                         <Route exact path="/" component={HomePage} />
-                        <Route exact path="/admin" component={Admin} />
+                        <PrivateRoute path="/admin" component={Admin} />
+                        {/* <PrivateRoute path="/order" component={Order} /> */}
+
+                        {/* <Route exact path="/admin" component={Admin} /> */}
                         <Route exact path="/login" component={SignIn} />
                         <Route exact path="/signup" component={SignUp} />
+                        <Route
+                            exact
+                            path="/details/:id"
+                            component={ProductDetails}
+                        />
                     </Switch>
                 </BrowserRouter>
             </AuthContextProvider>

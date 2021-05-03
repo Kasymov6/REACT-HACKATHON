@@ -4,6 +4,7 @@ import SignIn from "./components/SignIn/SignIn";
 import SignUp from "./components/SignUp/SignUp";
 import AuthContextProvider from "./context/AuthContext";
 import Header from "./components/Header/Header";
+import Carts from "./components/Card/Carts"
 
 import HomePage from "./components/HomePage/HomePage";
 import ProductContextProvider, {
@@ -28,6 +29,7 @@ const Routes = () => {
             {/* <Route exact path="/admin" component={Admin} /> */}
             <Route exact path="/login" component={SignIn} />
             <Route exact path="/signup" component={SignUp} />
+            <Route exact path="/cart" component={Carts}/>
             <Route exact path="/details/:id" component={ProductDetails} />
           </Switch>
           <Footer />

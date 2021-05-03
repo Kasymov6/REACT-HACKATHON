@@ -13,10 +13,19 @@ const Header = () => {
         <div className="container">
           <div className="main-header">
             <div className="left-side">
-              <p className="header-p">
                 <Link to="/">
-                  <p>Meню</p>
+                  <p className="header-p">Meню</p>
                 </Link>
+                <Link to="">
+                  <p className="header-p">Часы</p>
+                </Link>
+                <Link to="">
+                  <p className="header-p">Мир ROLEX</p>
+                </Link>                 
+                <Link to="">                  
+                  <p className="header-p">Поиск дестрибьютера</p>
+                </Link>
+<<<<<<< HEAD
               </p>
               <Link to="/products">
                 <p className="header-p">Часы</p>
@@ -26,9 +35,13 @@ const Header = () => {
               </p>
 
               <p className="header-p">Поиск дестрибьютера</p>
+=======
+>>>>>>> 7336f240570a3d85ee209258ce37b1210bf84363
               <div className="mid">
-                <img src={rolexLogo} alt="rolex-logo" />
+                <Link to="/">
+                <img className="mid-img" src={rolexLogo} alt="rolex-logo" />
                 <h2>ROLEX</h2>
+                </Link>
               </div>
             </div>
             <div className="right-side">
@@ -45,9 +58,9 @@ const Header = () => {
               )} */}
               <div className="icon">
                 <i className="far fa-heart"></i>
-                <p className="header-p">
-                  <p>Ваша подборка</p>
-                </p>
+                <Link to="/cart">
+                  <p className="header-p">Ваша подборка</p>
+                </Link>
               </div>
             </div>
           </div>

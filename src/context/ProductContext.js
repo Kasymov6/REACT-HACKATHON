@@ -67,11 +67,12 @@ const ProductContextProvider = ({ children }) => {
             totalPrice:0
         }
     }
-    let newProduct ={
-        item: product,
-        count:1,
-        subPrice: 0
-    }
+    // let newProduct ={
+    //     item: product,
+    //     count:1,
+    //     subPrice: 0
+    // }
+
 
     // let filteredCard = cart.products.filter(elem=>elem.item.id===product.id)
     // if( filteredCard.length>0){
@@ -82,7 +83,7 @@ const ProductContextProvider = ({ children }) => {
     
     // newProduct.subPrice=calcSubPrice(newProduct)
     // cart.totalPrice=calcTotalPrice(cart.products)
-    // localStorage.setItem("cart", JSON.stringify(cart))
+    localStorage.setItem("cart", JSON.stringify(cart))
 
     // dispatch({
     //     type:"CHANGE_CART_COUNT",

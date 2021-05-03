@@ -27,11 +27,8 @@ const Routes = () => {
             {/* <Route exact path="/admin" component={Admin} /> */}
             <Route exact path="/login" component={SignIn} />
             <Route exact path="/signup" component={SignUp} />
-<<<<<<< HEAD
-            <Route exact path="cart" component={Carts}/>
-=======
+            <Route exact path="/cart" component={Carts}/>
             <Route exact path="/details/:id" component={ProductDetails} />
->>>>>>> 2ee3c458ff56518d85e7938faae209ceb50805b7
           </Switch>
         </BrowserRouter>
       </AuthContextProvider>

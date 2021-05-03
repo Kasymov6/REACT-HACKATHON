@@ -38,14 +38,6 @@ const ProductCard = ({ item }) => {
       history.push("/");
     });
   };
-<<<<<<< HEAD
-  // const handleValue = (e) => {
-  //   let newTopic = { ...editedTopic, [e.target.name]: e.target.value };
-  //   setEditedProduct(newTopic);
-  // };
-  // const [editedTopic, setEditedTopic] = useState({});
-=======
->>>>>>> 2ee3c458ff56518d85e7938faae209ceb50805b7
   return (
     <div>
       {/* {productDetails ? ( */}

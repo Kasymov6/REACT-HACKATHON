@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "./ProductCard.css";
 import { Link } from "react-router-dom";
-import shoppingCart from "../../assets/image/shopping.svg";
+// import shoppingCart from "../../assets/image/shopping.svg";
 import { productContext } from "../../context/ProductContext";
 
 const ProductCard = (props, {item}) => {
@@ -11,14 +11,15 @@ const ProductCard = (props, {item}) => {
       <img src={props.item.img} />
       <div className="alert">
         <h3>{props.item.title}</h3>
-        <div class="price-shop">
+        <div className="price-shop">
           <p>{props.item.price}$</p>
           <Link to={`/details/${props.item.id}`}>
             <button>Подробнее</button>
           </Link>
-          <button className="shop-btn">
-            <img className="shoppingCart" onClick={()=>addProductToCart(item)} src={shoppingCart} />
+          <Link to="/cart">
+          <button onClick={()=>addProductToCart(item)} className="shop-btn">add
           </button>
+          </Link>
         </div>
       </div>
     </div>

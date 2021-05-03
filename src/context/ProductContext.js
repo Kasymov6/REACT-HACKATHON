@@ -45,6 +45,7 @@ const ProductContextProvider = ({ children }) => {
   async function saveProduct(id, newProduct) {
     await axios.patch(`http://localhost:8000/products/${id}`, newProduct);
     getProductDetails(id);
+    getProducts();
   }
   async function search(value) {
     let { data } = await axios.get(`http://localhost:8000/products?q=${value}`);

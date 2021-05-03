@@ -1,37 +1,63 @@
-import React, { useContext, useEffect } from 'react';
-import "./Carts.css"
-import productContext from "../../context/ProductContext"
+import { CircularProgress } from "@material-ui/core";
+import React, { useContext, useEffect } from "react";
+import { productContext } from "../../context/ProductContext";
+import { calcTotalPrice } from "../helpers/calcPrice";
+import './Carts.css'
 
-const Carts = () => {
-    const {cart, gerCard}=useContext(productContext)
-    useEffect(()=>{
-        gerCard()
-    })
-    return (
-        <>
-         {cart.products ? (
-             <div>opoijpjihoih</div>
-           {cart.products.map(elem=>(
-            <div className="all-cards">
-            <div className="main-card">
-                <div className="img-card">
-                    <img src={elem.item.img} alt="часики"/>
-                </div>
-                <div className="info-card">
-                    <h3>{elem.item.title}</h3>
-                    <p className="opisanie">{elem.item.price}$ Часы Oyster Perpetual Explorer и Oyster Perpetual Explorer II появились в результате тесного сотрудничества Rolex с миром исследований. Они порой находятся в условиях, в которых отваживается работать далеко не каждый.</p>
-                </div>
-                <div className="btns-card">
-                    <button className="btns-shop">Buy</button>
-                    <button className="btns-shop">Show Info</button>
-                    <button className="btns-shop">Delete</button>
-                </div>
-            </div>
-        </div>))}
-        ):(
-            <div>NO</div>)}
-        </>
-    );
+const Cart = ({item}) => {
+  const { getCart, cart, changeProductCount } = useContext(productContext);
+  useEffect(() => {
+    getCart();
+  }, []);
+  console.log(cart)
+  return (
+    <div className="cart">
+      {cart.products ? (
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Count</th>
+                <th>SubPrice</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cart.products.map((product) => (
+                <tr key={product.item.id}>
+                  <td>
+                    <img
+                      style={{ width: "50px" }}
+                      src={product.item.img}
+                      alt="product-img"
+                    />
+                  </td>
+                  <td>{product.item.title}</td>
+                  <td>{product.item.price}</td>
+                  <td>
+                    <input
+                      type="number"
+                      onChange={(e) =>
+                        changeProductCount(e.target.value, product.item.id)
+                      }
+                      value={product.item.count}
+                    />
+                  </td>
+                  <td>{product.subPrice}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <h4>Total:{calcTotalPrice(cart.products)}</h4>
+          <button>Купить</button>
+        </div>
+      ) : (
+        <CircularProgress />
+      )}
+    </div>
+  );
 };
 
-export default Carts;   
+export default Cart;

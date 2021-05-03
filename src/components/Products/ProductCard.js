@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { productContext } from "../../context/ProductContext";
 
 const ProductCard = (props, {item}) => {
+  console.log(item)
     const {addProductToCart}=useContext(productContext)
   return (
     <div className="cart">
@@ -16,10 +17,9 @@ const ProductCard = (props, {item}) => {
           <Link to={`/details/${props.item.id}`}>
             <button>Подробнее</button>
           </Link>
-          <Link to="/cart">
-          <button onClick={()=>addProductToCart(item)} className="shop-btn">add
+          
+          <button onClick={()=>addProductToCart(props.item)} className="shop-btn">add
           </button>
-          </Link>
         </div>
       </div>
     </div>

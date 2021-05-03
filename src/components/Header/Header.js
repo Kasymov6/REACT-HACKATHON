@@ -46,7 +46,7 @@ const Header = () => {
               )} */}
               <div className="icon">
                 <i className="far fa-heart"></i>
-                <Link to="">
+                <Link to="/cart">
                   <p className="header-p">Ваша подборка</p>
                 </Link>
               </div>

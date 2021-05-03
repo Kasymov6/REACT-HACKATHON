@@ -5,7 +5,11 @@ body {
   font-family: "M PLUS 1p", sans-serif;
 }
 .header:hover {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.6);
+  transition: 0.7s;
+}
+.header{
+  transition: 0.7s;
 }
 .container {
   width: 1350px;
@@ -30,9 +34,10 @@ body {
 .header-p {
   margin-right: 20px;
   font-size: 16px;
+  color: black;
+  text-decoration: none;
 }
 a {
-  color: white;
   text-decoration: none;
 }
 i {
@@ -42,11 +47,11 @@ i {
 .mid {
   margin-left: 220px;
 }
-.mid > img {
+.mid-img {
   width: 100px;
 }
 h2 {
-  color: white;
+  color: black;
   text-align: center;
   margin-top: -20px;
   font-family: "Times New Roman", Times, serif;

@@ -7,6 +7,7 @@ const INIT_STATE = {
   productsData: [],
   productDetails: null,
   searchData: [],
+  cart:{}
 };
 
 const reducer = (state = INIT_STATE, action) => {
@@ -56,18 +57,79 @@ const ProductContextProvider = ({ children }) => {
   async function deleteProduct(id) {
     return await axios.delete(`http://localhost:8000/products/${id}`);
   }
+  // --------------------КОРЗИНА-------------------------------
+  function addProductToCart(product){
+    let cart=JSON.parse(localStorage.getItem('cart'))
+    if(!cart){
+        cart={
+            products: [],
+            totalPrice:0
+        }
+    }
+    let newProduct ={
+        item: product,
+        count:1,
+        subPrice: 0
+    }
+
+    // let filteredCard = cart.products.filter(elem=>elem.item.id===product.id)
+    // if( filteredCard.length>0){
+    //    cart.products=cart.products.filter(elem=>elem.item.id!==product.id)
+    // } else{
+    //     cart.products.push(newProduct)
+    // }
+    
+    // newProduct.subPrice=calcSubPrice(newProduct)
+    // cart.totalPrice=calcTotalPrice(cart.products)
+    // localStorage.setItem("cart", JSON.stringify(cart))
+
+    // dispatch({
+    //     type:"CHANGE_CART_COUNT",
+    //     payload:cart.products.length
+    // })
+}
+function getCard(){
+    let cart=JSON.parse(localStorage.getItem('cart'))
+    if(!cart){
+        cart={
+            products: [],
+            totalPrice:0
+        }
+    }
+    dispatch({
+        type:"GET_CART",
+        payload:cart
+    })
+}
+// function changeProductCount(count, id){
+//     let cart=JSON.parse(localStorage.getItem('cart'))
+//     cart.products=cart.products.map(elem=>{
+//         if (elem.item.id===id){
+//             elem.count=count
+//             elem.subPrice=calcSubPrice(elem)
+//         }
+//         return elem
+//     })
+//     cart.totalPrice=calcTotalPrice(cart.products)
+//     localStorage.setItem("cart", JSON.stringify(cart))
+//     getCard()
+// }
+
   return (
     <productContext.Provider
       value={{
         productsData: state.productsData,
         productDetails: state.productDetails,
         searchData: state.searchData,
+        cart:state.cart,
         postNewProduct,
         getProducts,
         getProductDetails,
         saveProduct,
         search,
         deleteProduct,
+        addProductToCart,
+        getCard
       }}
     >
       {children}

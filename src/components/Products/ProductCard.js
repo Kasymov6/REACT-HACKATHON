@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./ProductCard.css";
 import { Link } from "react-router-dom";
 import shoppingCart from "../../assets/image/shopping.svg";
+import { productContext } from "../../context/ProductContext";
 
-const ProductCard = (props) => {
+const ProductCard = (props, {item}) => {
+    const {addProductToCart}=useContext(productContext)
   return (
     <div className="cart">
       <img src={props.item.img} />
@@ -15,7 +17,7 @@ const ProductCard = (props) => {
             <button>Подробнее</button>
           </Link>
           <button className="shop-btn">
-            <img className="shoppingCart" src={shoppingCart} />
+            <img className="shoppingCart" onClick={()=>addProductToCart(item)} src={shoppingCart} />
           </button>
         </div>
       </div>

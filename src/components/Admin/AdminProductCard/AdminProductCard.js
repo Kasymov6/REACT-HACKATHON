@@ -17,11 +17,11 @@ const AdminProductCard = (props) => {
       history.push("/");
     });
   };
-  const handleValue = (e) => {
-    let newTopic = { ...editedTopic, [e.target.name]: e.target.value };
-    setEditedProduct(newTopic);
-  };
-  const [editedTopic, setEditedTopic] = useState({});
+  // const handleValue = (e) => {
+  //   let newTopic = { ...editedTopic, [e.target.name]: e.target.value };
+  //   setEditedProduct(newTopic);
+  // };
+  // const [editedTopic, setEditedTopic] = useState({});
   return (
     <div className="cart">
       <img src={props.item.img} />

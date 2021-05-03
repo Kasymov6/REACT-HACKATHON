@@ -12,6 +12,7 @@ import ProductContextProvider, {
 import Admin from "./components/Admin/Tabs";
 import ProductDetails from "./components/Products/ProductDetails";
 import PrivateRoute from "./components/PrivateRoute";
+import ProductList from "./components/Products/ProductList";
 const Routes = () => {
   return (
     <ProductContextProvider>
@@ -22,7 +23,7 @@ const Routes = () => {
             <Route exact path="/" component={HomePage} />
             <PrivateRoute path="/admin" component={Admin} />
             {/* <PrivateRoute path="/order" component={Order} /> */}
-
+            <Route exact path="/products" component={ProductList} />
             {/* <Route exact path="/admin" component={Admin} /> */}
             <Route exact path="/login" component={SignIn} />
             <Route exact path="/signup" component={SignUp} />

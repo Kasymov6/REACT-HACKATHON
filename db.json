@@ -2,33 +2,13 @@
   "products": [
     {
       "title": "kani",
-      "description": "final test",
-      "img": "",
+      "description": "",
+      "img": "https://content.rolex.com/dam/new-watches-2021/homepage/roller/all-watches/watches_0003_m126200-0020-datejust.jpg?imwidth=550",
       "subTitle": "",
       "secondDescription": "",
       "secondImg": "",
-      "price": "5555",
-      "id": 4
-    },
-    {
-      "title": "new item 22222",
-      "description": "new ",
-      "img": "",
-      "subTitle": "",
-      "secondDescription": "",
-      "secondImg": "",
-      "price": "444444444",
-      "id": 5
-    },
-    {
-      "title": "sss",
-      "description": "sss",
-      "img": "sss",
-      "subTitle": "",
-      "secondDescription": "",
-      "secondImg": "",
-      "price": "",
-      "id": 6
+      "price": "2000",
+      "id": 1
     }
   ]
 }

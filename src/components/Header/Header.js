@@ -18,15 +18,14 @@ const Header = () => {
                   <p>Meню</p>
                 </Link>
               </p>
-              <p className="header-p">
-                <p>Часы</p>
-              </p>
+              <Link to="/products">
+                <p className="header-p">Часы</p>
+              </Link>
               <p className="header-p">
                 <p>Мир ROLEX</p>
               </p>
-              <p className="header-p">
-                <p>Поиск дестрибьютера</p>
-              </p>
+
+              <p className="header-p">Поиск дестрибьютера</p>
               <div className="mid">
                 <img src={rolexLogo} alt="rolex-logo" />
                 <h2>ROLEX</h2>

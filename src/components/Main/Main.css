@@ -35,3 +35,10 @@
 /* p {
   font-size: 20px;
 } */
+.main-video2 {
+  /* position: absolute; */
+  top: 1000px;
+  left: 0;
+  width: 100%;
+  z-index: -100;
+}

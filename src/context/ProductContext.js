@@ -11,9 +11,9 @@ const INIT_STATE = {
 
 const reducer = (state = INIT_STATE, action) => {
   switch (action.type) {
-    case "GET_TOPICS":
+    case "GET_PRODUCTS":
       return { ...state, productsData: action.payload };
-    case "GET_TOPIC_DETAILS":
+    case "GET_PRODUCT_DETAILS":
       return { ...state, productDetails: action.payload };
     case "SEARCH":
       return { ...state, searchData: action.payload };
@@ -30,14 +30,14 @@ const ProductContextProvider = ({ children }) => {
   async function getProducts() {
     let { data } = await axios.get("http://localhost:8000/products");
     dispatch({
-      type: "GET_TOPICS",
+      type: "GET_PRODUCTS",
       payload: data,
     });
   }
   async function getProductDetails(id) {
     let { data } = await axios.get(`http://localhost:8000/products/${id}`);
     dispatch({
-      type: "GET_TOPIC_DETAILS",
+      type: "GET_PRODUCT_DETAILS",
       payload: data,
     });
   }

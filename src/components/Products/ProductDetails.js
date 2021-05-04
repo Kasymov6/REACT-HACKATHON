@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from "react";
-import ReactPlayer from "react-player";
 import { productContext } from "../../context/ProductContext";
 
 const ProductDetails = (props) => {
@@ -26,13 +25,7 @@ const ProductDetails = (props) => {
                     </p>
                     <img src={productDetails.secondImg} />
                     <p>{productDetails.price}$</p>
-                    <video
-                      autoPlay
-                      loop
-                      muted
-
-                      // className="fullscreen-bg__video"
-                    >
+                    <video autoPlay loop muted>
                       <source src={productDetails.video} type="video/mp4" />
                     </video>
                   </>

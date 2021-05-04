@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@100;300&display=swap");
 body {
-  margin: 0;
-  padding: 0;
-  font-family: "M PLUS 1p", sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: "M PLUS 1p", sans-serif;
 }
 .header:hover {
   background-color: rgba(255, 255, 255, 0.6);
@@ -11,25 +11,27 @@ body {
 .header{
   transition: 0.7s;
 }
+
 .container {
-  width: 1350px;
-  margin: 0 auto;
+    width: 1350px;
+    margin: 0 auto;
 }
 .left-side {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 .right-side {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 .icon {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 .main-header {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
 }
 .header-p {
   margin-right: 20px;
@@ -37,19 +39,30 @@ body {
   color: black;
   text-decoration: none;
 }
+
+.header-p:hover {
+    font-size: 25px;
+    transition: 0.5s;
+}
+
+.rolex {
+    color: black;
+}
+
 a {
   text-decoration: none;
 }
 i {
-  color: white;
-  margin-right: 7px;
+    color: white;
+    margin-right: 7px;
 }
 .mid {
-  margin-left: 220px;
+    margin-left: 220px;
 }
 .mid-img {
   width: 100px;
 }
+
 h2 {
   color: black;
   text-align: center;

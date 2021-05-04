@@ -4,6 +4,7 @@ import SignIn from "./components/SignIn/SignIn";
 import SignUp from "./components/SignUp/SignUp";
 import AuthContextProvider from "./context/AuthContext";
 import Header from "./components/Header/Header";
+import Filter from "./components/Filter/Filter";
 
 import HomePage from "./components/HomePage/HomePage";
 import ProductContextProvider, {
@@ -18,6 +19,8 @@ const Routes = () => {
         <ProductContextProvider>
             <AuthContextProvider>
                 <BrowserRouter>
+                    <Route exact path="/login" component={SignIn} />
+                    <Route exact path="/signup" component={SignUp} />
                     <Header />
                     <Switch>
                         <Route exact path="/" component={HomePage} />
@@ -25,8 +28,7 @@ const Routes = () => {
                         {/* <PrivateRoute path="/order" component={Order} /> */}
 
                         {/* <Route exact path="/admin" component={Admin} /> */}
-                        <Route exact path="/login" component={SignIn} />
-                        <Route exact path="/signup" component={SignUp} />
+                        <Route exact path="/filter" component={Filter} />
                         <Route
                             exact
                             path="/details/:id"

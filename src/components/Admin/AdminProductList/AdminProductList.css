@@ -1,0 +1,7 @@
+.pageBtn {
+    border-radius: 50px;
+}
+
+.pageBtn:hover {
+    background-color: red;
+}

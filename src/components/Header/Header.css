@@ -7,6 +7,7 @@ body {
 .header:hover {
     background-color: white;
 }
+
 .container {
     width: 1350px;
     margin: 0 auto;
@@ -26,6 +27,7 @@ body {
 .main-header {
     display: flex;
     justify-content: space-between;
+    position: fixed;
 }
 .header-p {
     margin-right: 20px;
@@ -36,6 +38,10 @@ body {
 .header-p:hover {
     font-size: 25px;
     transition: 0.5s;
+}
+
+.rolex {
+    color: black;
 }
 
 a {

@@ -153,7 +153,7 @@ const ProductCard = ({ item }) => {
                     </div>
                 </div>
             </div>
-            ){/* : (
+            {/* : (
         "Details"
       )} */}
         </div>

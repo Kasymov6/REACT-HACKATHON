@@ -71,6 +71,11 @@ const AuthContextProvider = ({ children }) => {
             alert(err.response.data.message);
         }
     }
+    return (
+        <authContext.Provider value={{ registerUser, loginUser }}>
+            {children}{" "}
+        </authContext.Provider>
+    );
 };
 
 export default AuthContextProvider;

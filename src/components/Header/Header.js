@@ -1,11 +1,22 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Header.css";
 import rolexLogo from "../../assets/image/Rolex-logo.png";
 import { Link } from "react-router-dom";
 import { authContext } from "../../context/AuthContext";
+import { productContext } from "../../context/ProductContext";
 
 const Header = () => {
     const { isAuth } = useContext(authContext);
+    const [productSearch, setProductSearch] = useState("");
+    const { search } = useContext(productContext);
+
+    function handleSeacrh(e) {
+        setProductSearch(e.target.value);
+    }
+
+    useEffect(() => {
+        search(productSearch);
+    }, [productSearch]);
 
     return (
         <div className="popi">
@@ -19,7 +30,9 @@ const Header = () => {
                                 </Link>
                             </p>
                             <p className="header-p">
-                                <p>Часы</p>
+                                <Link to="/filter">
+                                    <p>Часы</p>
+                                </Link>
                             </p>
                             <p className="header-p">
                                 <p>Мир ROLEX</p>
@@ -29,14 +42,17 @@ const Header = () => {
                             </p>
                             <div className="mid">
                                 <img src={rolexLogo} alt="rolex-logo" />
-                                <h2>ROLEX</h2>
+                                <h2 className="rolex">ROLEX</h2>
                             </div>
                         </div>
                         <div className="right-side">
                             <div className="icon">
                                 <i className="fas fa-search"></i>
                                 <p className="header-p">
-                                    <input placeholder="Поиск"></input>
+                                    <input
+                                        onChange={handleSeacrh}
+                                        placeholder="Поиск"
+                                    ></input>
                                 </p>
                             </div>
                             {/* {isAuth ? (

@@ -8,9 +8,9 @@ body {
   background-color: rgba(255, 255, 255, 0.6);
   transition: 0.7s;
 }
-.header{
+/* .header{
   transition: 0.7s;
-}
+} */
 
 .container {
     width: 1350px;
@@ -31,7 +31,7 @@ body {
 .main-header {
     display: flex;
     justify-content: space-between;
-    position: fixed;
+    /* position: fixed; */
 }
 .header-p {
   margin-right: 20px;
@@ -40,10 +40,10 @@ body {
   text-decoration: none;
 }
 
-.header-p:hover {
+/* .header-p:hover {
     font-size: 25px;
     transition: 0.5s;
-}
+} */
 
 .rolex {
     color: black;

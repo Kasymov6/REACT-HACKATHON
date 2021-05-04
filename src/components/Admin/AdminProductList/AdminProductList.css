@@ -3,5 +3,8 @@
 }
 
 .pageBtn:hover {
-    background-color: red;
+    background-color: gray;
+}
+.pagination{
+    margin: 350px 650px 0;
 }

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import ReactPlayer from "react-player";
+// import ReactPlayer from "react-player";
 import { productContext } from "../../context/ProductContext";
 
 const ProductDetails = (props) => {

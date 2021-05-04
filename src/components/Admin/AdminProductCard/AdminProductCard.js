@@ -2,7 +2,7 @@ import "./AdminProductCard.css";
 import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { productContext } from "../../../context/ProductContext";
-import ReactPlayer from "react-player";
+// import ReactPlayer from "react-player";
 const ProductCard = ({ item }) => {
   const id = item.id;
   const history = useHistory();

@@ -2,6 +2,7 @@ import "./AdminProductCard.css";
 import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { productContext } from "../../../context/ProductContext";
+import ReactPlayer from "react-player";
 const ProductCard = ({ item }) => {
   const id = item.id;
   const history = useHistory();
@@ -81,12 +82,20 @@ const ProductCard = ({ item }) => {
                     >
                       {item.price}
                     </textarea>
+                    <textarea
+                      name="video"
+                      onChange={handleValue}
+                      className="box-desc"
+                    >
+                      {item.video}
+                    </textarea>
                   </div>
                 ) : (
                   <>
                     <table>
                       <thead>
                         <tr>
+                          <th>Video</th>
                           <th>Title</th>
                           <th>description</th>
                           <th>subTitle</th>
@@ -106,6 +115,15 @@ const ProductCard = ({ item }) => {
                           <img src={item.secondImg} />
                           <p>{item.price}$</p>
                         </tr>
+                        <video
+                          loop
+                          muted
+                          autoPlay
+                          controls
+                          className="fullscreen-bg__video"
+                        >
+                          <source src={item.video} type="video/mp4" />
+                        </video>
                       </tbody>
                     </table>
                   </>
@@ -123,13 +141,13 @@ const ProductCard = ({ item }) => {
                   </button>
                 </div>
               </div>
+              {/* : (
+        "Details"
+      )} */}
             </div>
           </div>
         </div>
       </div>
-      ){/* : (
-        "Details"
-      )} */}
     </div>
   );
 };

@@ -14,8 +14,8 @@ const Main = () => {
       ROLEX ПРЕДСТАВЛЯЕТ СВОИ ПОСЛЕДНИЕ ТВОРЕНИЯ, В КОТОРЫХ ПРИМЕНЕНО ОРИГИНАЛЬНОЕ НОУ‑ХАУ.
       </h5>
       <div className="main-video2">
-        <video loop muted autoPlay className="fullscreen-bg__video2">
-          <source src={videoMp4} type="video/webm" />
+        <video loop muted autoPlay className="fullscreen-bg__video">
+          <source src={videoMP4} type="video/webm" />
         </video>
       </div>
     </div>

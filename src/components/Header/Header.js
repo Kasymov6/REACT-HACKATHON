@@ -60,17 +60,17 @@ const Header = () => {
               ) : (
                 button{войти}
               )} */}
-                            <div className="icon">
-                                <i className="far fa-heart"></i>
-                                <p className="header-p">
-                                    <p>Ваша подборка</p>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              <div className="icon">
+                <i className="far fa-heart"></i>
+                <Link to="/cart">
+                  <p className="header-p">Ваша подборка</p>
+                </Link>
+              </div>
             </div>
         </div>
+      </div>
+    </div>      
+  </div>
     );
 };
 

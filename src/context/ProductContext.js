@@ -1,3 +1,4 @@
+import { red } from "@material-ui/core/colors";
 import axios from "axios";
 import React, { useReducer, useState, useEffect } from "react";
 
@@ -23,7 +24,6 @@ const reducer = (state = INIT_STATE, action) => {
             return state;
     }
 };
-
 const ProductContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, INIT_STATE);
     const [page, setPage] = useState("");
@@ -95,4 +95,5 @@ const ProductContextProvider = ({ children }) => {
         </productContext.Provider>
     );
 };
+
 export default ProductContextProvider;

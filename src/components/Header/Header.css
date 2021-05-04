@@ -5,11 +5,11 @@ body {
     font-family: "M PLUS 1p", sans-serif;
 }
 .header:hover {
-  background-color: rgba(255, 255, 255, 0.6);
-  transition: 0.7s;
+    background-color: rgba(255, 255, 255, 0.6);
+    transition: 0.7s;
 }
-.header{
-  transition: 0.7s;
+.header {
+    transition: 0.7s;
 }
 
 .container {
@@ -34,10 +34,10 @@ body {
     position: fixed;
 }
 .header-p {
-  margin-right: 20px;
-  font-size: 16px;
-  color: black;
-  text-decoration: none;
+    margin-right: 20px;
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
 }
 
 .header-p:hover {
@@ -50,7 +50,7 @@ body {
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
 i {
     color: white;
@@ -60,12 +60,12 @@ i {
     margin-left: 220px;
 }
 .mid-img {
-  width: 100px;
+    width: 100px;
 }
 
 h2 {
-  color: black;
-  text-align: center;
-  margin-top: -20px;
-  font-family: "Times New Roman", Times, serif;
+    color: black;
+    text-align: center;
+    margin-top: -20px;
+    font-family: "Times New Roman", Times, serif;
 }

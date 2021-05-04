@@ -1,0 +1,8 @@
+.main-div {
+    display: flex;
+}
+
+.filter-price {
+    display: flex;
+    justify-content: center;
+}

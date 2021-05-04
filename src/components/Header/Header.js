@@ -24,25 +24,27 @@ const Header = () => {
                 <div className="container">
                     <div className="main-header">
                         <div className="left-side">
-                            <p className="header-p">
-                                <Link to="/">
-                                    <p>Meню</p>
-                                </Link>
-                            </p>
-                            <p className="header-p">
-                                <Link to="/filter">
-                                    <p>Часы</p>
-                                </Link>
-                            </p>
-                            <p className="header-p">
-                                <p>Мир ROLEX</p>
-                            </p>
-                            <p className="header-p">
-                                <p>Поиск дестрибьютера</p>
-                            </p>
+                            <Link to="/">
+                                <p className="header-p">Meню</p>
+                            </Link>
+                            <Link to="/filter">
+                                <p className="header-p">Часы</p>
+                            </Link>
+                            <Link to="">
+                                <p className="header-p">Мир ROLEX</p>
+                            </Link>
+                            <Link to="">
+                                <p className="header-p">Поиск дестрибьютера</p>
+                            </Link>
                             <div className="mid">
-                                <img src={rolexLogo} alt="rolex-logo" />
-                                <h2 className="rolex">ROLEX</h2>
+                                <Link to="/">
+                                    <img
+                                        className="mid-img"
+                                        src={rolexLogo}
+                                        alt="rolex-logo"
+                                    />
+                                    <h2>ROLEX</h2>
+                                </Link>
                             </div>
                         </div>
                         <div className="right-side">
@@ -60,17 +62,17 @@ const Header = () => {
               ) : (
                 button{войти}
               )} */}
-              <div className="icon">
-                <i className="far fa-heart"></i>
-                <Link to="/cart">
-                  <p className="header-p">Ваша подборка</p>
-                </Link>
-              </div>
+                            <div className="icon">
+                                <i className="far fa-heart"></i>
+                                <Link to="/cart">
+                                    <p className="header-p">Ваша подборка</p>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-      </div>
-    </div>      
-  </div>
     );
 };
 

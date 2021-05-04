@@ -4,9 +4,8 @@ import { Link } from "react-router-dom";
 // import shoppingCart from "../../assets/image/shopping.svg";
 import { productContext } from "../../context/ProductContext";
 
-const ProductCard = (props, {item}) => {
-  console.log(item)
-    const {addProductToCart}=useContext(productContext)
+const ProductCard = (props, { item }) => {
+  const { addProductToCart } = useContext(productContext);
   return (
     <div className="cart">
       <img src={props.item.img} />
@@ -17,8 +16,12 @@ const ProductCard = (props, {item}) => {
           <Link to={`/details/${props.item.id}`}>
             <button>Подробнее</button>
           </Link>
-          
-          <button onClick={()=>addProductToCart(props.item)} className="shop-btn">add
+
+          <button
+            onClick={() => addProductToCart(props.item)}
+            className="shop-btn"
+          >
+            add
           </button>
         </div>
       </div>

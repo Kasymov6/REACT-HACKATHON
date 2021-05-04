@@ -8,25 +8,25 @@ body {
   background-color: rgba(255, 255, 255, 0.6);
   transition: 0.7s;
 }
-/* .header{
+.header{
   transition: 0.7s;
-} */
+}
 
 .container {
-    width: 1350px;
-    margin: 0 auto;
+  width: 1350px;
+  margin: 0 auto;
 }
 .left-side {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 .right-side {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 .icon {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 .main-header {
     display: flex;
@@ -40,24 +40,31 @@ body {
   text-decoration: none;
 }
 
+<<<<<<< HEAD
 /* .header-p:hover {
     font-size: 25px;
     transition: 0.5s;
 } */
+=======
+.header-p:hover {
+  font-size: 25px;
+  transition: 0.5s;
+}
+>>>>>>> af94e74424f32fe8f12e2b64e9354eaf0c2bb7f3
 
 .rolex {
-    color: black;
+  color: black;
 }
 
 a {
   text-decoration: none;
 }
 i {
-    color: white;
-    margin-right: 7px;
+  color: white;
+  margin-right: 7px;
 }
 .mid {
-    margin-left: 220px;
+  margin-left: 220px;
 }
 .mid-img {
   width: 100px;

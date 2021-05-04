@@ -22,7 +22,7 @@ const ProductCard = (props, { item }) => {
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default ProductCard;

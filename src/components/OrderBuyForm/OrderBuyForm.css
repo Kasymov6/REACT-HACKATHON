@@ -1,0 +1,11 @@
+.forms-css {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+}
+.form-inp {
+  margin: 20px auto;
+}
+.form-btn {
+  margin: 20px auto;
+}

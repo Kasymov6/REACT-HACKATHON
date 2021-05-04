@@ -5,7 +5,6 @@ import SignUp from "./components/SignUp/SignUp";
 import AuthContextProvider from "./context/AuthContext";
 import Header from "./components/Header/Header";
 import Carts from "./components/Card/Carts";
-
 import HomePage from "./components/HomePage/HomePage";
 import ProductContextProvider, {
   productContext,
@@ -13,9 +12,10 @@ import ProductContextProvider, {
 import Admin from "./components/Admin/Tabs";
 import ProductDetails from "./components/Products/ProductDetails";
 import PrivateRoute from "./components/PrivateRoute";
-
 import ProductList from "./components/Products/ProductList";
 import Footer from "./components/Footer/Footer";
+import OrderBuyForm from "./components/OrderBuyForm/OrderBuyForm";
+import PaymentForm from "./components/Pay/Pay";
 
 const Routes = () => {
   return (
@@ -33,6 +33,8 @@ const Routes = () => {
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/cart" component={Carts} />
             <Route exact path="/details/:id" component={ProductDetails} />
+            <Route exact path="/order" component={OrderBuyForm} />
+            <Route exact path="/buy" component={PaymentForm} />
           </Switch>
           <Footer />
         </BrowserRouter>

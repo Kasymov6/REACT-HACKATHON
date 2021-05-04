@@ -2,14 +2,15 @@ import { CircularProgress } from "@material-ui/core";
 import React, { useContext, useEffect } from "react";
 import { productContext } from "../../context/ProductContext";
 import { calcTotalPrice } from "../helpers/calcPrice";
-import './Carts.css'
+import "./Carts.css";
+import { Link } from "react-router-dom";
 
-const Cart = ({item}) => {
+const Cart = ({ item }) => {
   const { getCart, cart, changeProductCount } = useContext(productContext);
   useEffect(() => {
     getCart();
   }, []);
-  console.log(cart)
+  console.log(cart);
   return (
     <div className="cart">
       {cart.products ? (
@@ -51,7 +52,9 @@ const Cart = ({item}) => {
             </tbody>
           </table>
           <h4>Total:{calcTotalPrice(cart.products)}</h4>
-          <button>Купить</button>
+          <Link to="/order">
+            <button>Купить</button>
+          </Link>
         </div>
       ) : (
         <CircularProgress />

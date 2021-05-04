@@ -48,3 +48,10 @@ h1 {
 .edit-textareas textarea {
   margin: 20px 0;
 }
+
+.main-video2 {
+  top: 1000px;
+  left: 0;
+  width: 100%;
+  z-index: -100;
+}

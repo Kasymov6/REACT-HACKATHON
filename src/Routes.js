@@ -8,14 +8,16 @@ import Carts from "./components/Card/Carts"
 
 import HomePage from "./components/HomePage/HomePage";
 import ProductContextProvider, {
-  productContext,
+    productContext,
 } from "./context/ProductContext";
 import Admin from "./components/Admin/Tabs";
 import ProductDetails from "./components/Products/ProductDetails";
 import PrivateRoute from "./components/PrivateRoute";
 import ProductList from "./components/Products/ProductList";
 import Footer from "./components/Footer/Footer";
+
 const Routes = () => {
+<<<<<<< HEAD
   return (
     <ProductContextProvider>
       <AuthContextProvider>
@@ -26,6 +28,20 @@ const Routes = () => {
             <PrivateRoute path="/admin" component={Admin} />
             {/* <PrivateRoute path="/order" component={Order} /> */}
             <Route exact path="/products" component={ProductList} />
+=======
+    return (
+        <ProductContextProvider>
+            <AuthContextProvider>
+                <BrowserRouter>
+                    <Route exact path="/login" component={SignIn} />
+                    <Route exact path="/signup" component={SignUp} />
+                    <Header />
+                    <Switch>
+                        <Route exact path="/" component={HomePage} />
+                        <PrivateRoute path="/admin" component={Admin} />
+                        {/* <PrivateRoute path="/order" component={Order} /> */}
+
+>>>>>>> aaefb6a3588aa33eed525e8a858c67dab692ed83
             {/* <Route exact path="/admin" component={Admin} /> */}
             <Route exact path="/login" component={SignIn} />
             <Route exact path="/signup" component={SignUp} />

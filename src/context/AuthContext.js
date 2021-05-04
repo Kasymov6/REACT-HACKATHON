@@ -5,70 +5,77 @@ import jwt_decode from "jwt-decode";
 
 export const authContext = React.createContext();
 const INIT_STATE = {
-  user: {},
-  isAuth: false,
+    user: {},
+    isAuth: false,
 };
 const reducer = (state = INIT_STATE, action) => {
-  switch (action.type) {
-    case "LOGIN_USER":
-      return {
-        ...state,
-        user: action.payload,
-        isAuth: true,
-      };
+    switch (action.type) {
+        case "LOGIN_USER":
+            return {
+                ...state,
+                user: action.payload,
+                isAuth: true,
+            };
 
-    case "LOGOUT_USER":
-      return {
-        ...state,
-        user: {},
-        isAuth: false,
-      };
+        case "LOGOUT_USER":
+            return {
+                ...state,
+                user: {},
+                isAuth: false,
+            };
 
-    default:
-      return state;
-  }
+        default:
+            return state;
+    }
 };
 const AuthContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, INIT_STATE);
-  async function registerUser(e, history) {
-    e.preventDefault();
-    const newUser = {
-      email: e.target[0].value,
-      password: e.target[2].value,
-    };
-    console.log(e);
-    try {
-      const res = await axios.post(`${AUTH_API}/api/auth/register`, newUser);
-      history.push("/login");
-    } catch (err) {
-      console.log(err.response);
+    const [state, dispatch] = useReducer(reducer, INIT_STATE);
+    async function registerUser(e, history) {
+        e.preventDefault();
+        const newUser = {
+            email: e.target[0].value,
+            password: e.target[2].value,
+        };
+        console.log(e);
+        try {
+            const res = await axios.post(
+                `${AUTH_API}/api/auth/register`,
+                newUser
+            );
+            history.push("/login");
+        } catch (err) {
+            console.log(err.response);
+        }
     }
-  }
 
-  async function loginUser(e, history) {
-    e.preventDefault();
-    const user = {
-      email: e.target[0].value,
-      password: e.target[2].value,
-    };
-    console.error(e.target, "this is target");
-    try {
-      const { data } = await axios.post(`${AUTH_API}/api/auth/login`, user);
-      localStorage.setItem("token", data.token);
-      const decoded = jwt_decode(data.token);
-      dispatch({
-        type: "LOGIN_USER",
-        payload: decoded,
-      });
-      history.push("/");
-    } catch (err) {
-      alert(err.response.data.message);
+    async function loginUser(e, history) {
+        e.preventDefault();
+        const user = {
+            email: e.target[0].value,
+            password: e.target[2].value,
+        };
+        console.error(e.target, "this is target");
+        try {
+            const { data } = await axios.post(
+                `${AUTH_API}/api/auth/login`,
+                user
+            );
+            localStorage.setItem("token", data.token);
+            const decoded = jwt_decode(data.token);
+            dispatch({
+                type: "LOGIN_USER",
+                payload: decoded,
+            });
+            history.push("/");
+        } catch (err) {
+            alert(err.response.data.message);
+        }
     }
-  }
-  return (
-    <authContext.Provider value={{ registerUser, loginUser }}>
-      {children}
-    </authContext.Provider>
-  );
+    return (
+        <authContext.Provider value={{ registerUser, loginUser }}>
+            {children}{" "}
+        </authContext.Provider>
+    );
 };
+
 export default AuthContextProvider;

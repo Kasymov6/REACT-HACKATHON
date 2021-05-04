@@ -10,7 +10,7 @@ const Main = () => {
           <source src={videoMP4} type="video/webm" />
         </video>
       </div>
-      <p className="main-title">
+      <p>
         ROLEX ПРЕДСТАВЛЯЕТ СВОИ ПОСЛЕДНИЕ ТВОРЕНИЯ, В КОТОРЫХ ПРИМЕНЕНО
         ОРИГИНАЛЬНОЕ НОУ‑ХАУ. Часы, которые зовут к исследованию земных недр и
         пределов Солнечной системы, покорению горных вершин и путешествию в
@@ -20,8 +20,8 @@ const Main = () => {
         характера.
       </p>
       <div className="main-video2">
-        <video loop muted autoPlay className="fullscreen-bg__video2">
-          <source src={videoMp4} type="video/webm" />
+        <video loop muted autoPlay className="fullscreen-bg__video">
+          <source src={videoMP4} type="video/webm" />
         </video>
       </div>
     </div>

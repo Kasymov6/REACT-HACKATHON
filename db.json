@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "products": [
     {
       "title": "kani",
@@ -22,4 +23,108 @@
       "id": 2
     }
   ]
+=======
+    "products": [
+        {
+            "title": "nur",
+            "description": "final test",
+            "img": "",
+            "subTitle": "",
+            "secondDescription": "",
+            "secondImg": "",
+            "price": "5555",
+            "id": 4
+        },
+        {
+            "title": "sss",
+            "description": "sss",
+            "img": "sss",
+            "subTitle": "",
+            "secondDescription": "",
+            "secondImg": "",
+            "price": "",
+            "id": 6
+        },
+        {
+            "title": "asddsadas",
+            "description": "asdasdas",
+            "img": "dsadas",
+            "subTitle": "dasdasd",
+            "secondDescription": "asdasdas",
+            "secondImg": "dasd",
+            "price": "asdasdas",
+            "id": 7
+        },
+        {
+            "title": "Chyngyz",
+            "description": "Aitmatov",
+            "img": "asdasd",
+            "subTitle": "asdasd",
+            "secondDescription": "sadasd",
+            "secondImg": "sadassad",
+            "price": "asdasd",
+            "id": 9
+        },
+        {
+            "title": "asghdjhasgd",
+            "description": "sdfsdfsdfsd",
+            "img": "dsfadsfadsf",
+            "subTitle": "dsafadsf",
+            "secondDescription": "fadsfds",
+            "secondImg": "",
+            "price": "",
+            "id": 10
+        },
+        {
+            "title": "dsfadasfsadf",
+            "description": "werwecds",
+            "img": "vsdvsdv",
+            "subTitle": "dbgfgbfg",
+            "secondDescription": "dsfsdfsd",
+            "secondImg": "dsfsdfsdfsdfs",
+            "price": "dfsdfds",
+            "id": 11
+        },
+        {
+            "title": "asdasdsfahgsakfj",
+            "description": "dsafadsfsd",
+            "img": "dsfadsfasd",
+            "subTitle": "dsafadsfsdf",
+            "secondDescription": "sdfasdf",
+            "secondImg": "sdfsdf",
+            "price": "sdfsdfasd",
+            "id": 12
+        },
+        {
+            "title": "asdasd",
+            "description": "asdasdas",
+            "img": "dasdasda",
+            "subTitle": "sdasdasd",
+            "secondDescription": "asdasdasd",
+            "secondImg": "sadasdas",
+            "price": "asdasd",
+            "id": 13
+        },
+        {
+            "title": "asdasdasd",
+            "description": "asdasdasd",
+            "img": "asdasdas",
+            "subTitle": "dasdasd",
+            "secondDescription": "asdasdasd",
+            "secondImg": "asdasdas",
+            "price": "",
+            "id": 14
+        },
+        {
+            "title": "asdasdsad",
+            "description": "asdasdsa",
+            "img": "adsasas",
+            "subTitle": "dasdasdas",
+            "secondDescription": "dasdasd",
+            "secondImg": "asdasda",
+            "price": "",
+            "id": 15
+        }
+    ]
+>>>>>>> aaefb6a3588aa33eed525e8a858c67dab692ed83
 }

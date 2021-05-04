@@ -115,7 +115,7 @@ const ProductCard = ({ item }) => {
                           <img src={item.secondImg} />
                           <p>{item.price}$</p>
                         </tr>
-                        {/* <video
+                        <video
                           loop
                           muted
                           autoPlay
@@ -123,13 +123,7 @@ const ProductCard = ({ item }) => {
                           className="fullscreen-bg__video"
                         >
                           <source src={item.video} type="video/mp4" />
-                        </video> */}
-                        <ReactPlayer
-                          url={item.video}
-                          loop
-                          muted={true}
-                          autoPlay
-                        />
+                        </video>
                       </tbody>
                     </table>
                   </>
@@ -147,13 +141,13 @@ const ProductCard = ({ item }) => {
                   </button>
                 </div>
               </div>
+              {/* : (
+        "Details"
+      )} */}
             </div>
           </div>
         </div>
       </div>
-      ){/* : (
-        "Details"
-      )} */}
     </div>
   );
 };

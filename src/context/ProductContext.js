@@ -1,17 +1,19 @@
 import { red } from "@material-ui/core/colors";
 import axios from "axios";
 import React, { useReducer } from "react";
-import {calcSubPrice,
+import {
+  calcSubPrice,
   calcTotalPrice,
-  getCountProductsInCart,} from '../components/helpers/calcPrice'
+  getCountProductsInCart,
+} from "../components/helpers/calcPrice";
 export const productContext = React.createContext();
 
 const INIT_STATE = {
   productsData: [],
   productDetails: null,
-  cart:{},
+  cart: {},
   searchData: [],
-  cartLength:getCountProductsInCart
+  cartLength: getCountProductsInCart,
 };
 
 const reducer = (state = INIT_STATE, action) => {
@@ -22,10 +24,10 @@ const reducer = (state = INIT_STATE, action) => {
       return { ...state, productDetails: action.payload };
     case "SEARCH":
       return { ...state, searchData: action.payload };
-      case "GET_CART":
-        return{...state,cart:action.payload}
-        case "CHANGE_CART_COUNT":
-          return {...state,cartLength:action.payload}
+    case "GET_CART":
+      return { ...state, cart: action.payload };
+    case "CHANGE_CART_COUNT":
+      return { ...state, cartLength: action.payload };
     default:
       return state;
   }
@@ -36,80 +38,77 @@ const ProductContextProvider = ({ children }) => {
     axios.post("http://localhost:8000/products", product);
   }
 
-function addProductToCart(product) {
-  console.log(product)
-  let cart = JSON.parse(localStorage.getItem("cart"));
-  if (!cart) {
-    cart = {
-      products: [],
-      totalPrice: 0,
-    };
-  }
-  let newProduct = {
-    item: product,
-    count: 1,
-    subPrice: 0,
-  };
-
-  let filteredCart = cart.products.filter(
-    (elem) => elem.item.id === product.id
-  );
-  if (filteredCart.length > 0) {
-    cart.products = cart.products.filter(
-      (elem) => elem.item.id !== product.id
-    );
-  } else {
-    cart.products.push(newProduct);
-  }
-
-  console.log(newProduct)
-  newProduct.subPrice = calcSubPrice(newProduct);
-  cart.totalPrice = calcTotalPrice(cart.products);
-  localStorage.setItem("cart", JSON.stringify(cart));
-
- 
-}
-
-function getCart() {
-  let cart = JSON.parse(localStorage.getItem("cart"));
-  if (!cart) {
-    cart = {
-      products: [],
-      totalPrice: 0,
-    };
-  }
-  dispatch({
-    type: "GET_CART",
-    payload: cart
-  });
-}
-
-function changeProductCount(count, id) {
-  let cart = JSON.parse(localStorage.getItem("cart"));
-  cart.products = cart.products.map((elem) => {
-    if (elem.item.id === id) {
-      elem.count = count;
-      elem.subPrice = calcSubPrice(elem);
+  function addProductToCart(product) {
+    console.log(product);
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    if (!cart) {
+      cart = {
+        products: [],
+        totalPrice: 0,
+      };
     }
-    return elem;
-  });
-  cart.totalPrice = calcTotalPrice(cart.products);
-  localStorage.setItem("cart", JSON.stringify(cart));
-  getCart();
-}
-
-function checkProductCart(id) {
-  let cart = JSON.parse(localStorage.getItem("cart"));
-  if (!cart) {
-    cart = {
-      products: [],
-      totalPrice: 0,
+    let newProduct = {
+      item: product,
+      count: 1,
+      subPrice: 0,
     };
-  }
-  let newCart = cart.products.filter((elem) => elem.item.id === id);
-  return newCart.length > 0 ? true : false;
-}
 
+    let filteredCart = cart.products.filter(
+      (elem) => elem.item.id === product.id
+    );
+    if (filteredCart.length > 0) {
+      cart.products = cart.products.filter(
+        (elem) => elem.item.id !== product.id
+      );
+    } else {
+      cart.products.push(newProduct);
+    }
+
+    console.log(newProduct);
+    newProduct.subPrice = calcSubPrice(newProduct);
+    cart.totalPrice = calcTotalPrice(cart.products);
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }
+
+  function getCart() {
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    if (!cart) {
+      cart = {
+        products: [],
+        totalPrice: 0,
+      };
+    }
+    dispatch({
+      type: "GET_CART",
+      payload: cart,
+    });
+  }
+
+  function changeProductCount(count, id) {
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    cart.products = cart.products.map((elem) => {
+      if (elem.item.id === id) {
+        elem.count = count;
+        elem.subPrice = calcSubPrice(elem);
+      }
+      return elem;
+    });
+    cart.totalPrice = calcTotalPrice(cart.products);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    getCart();
+  }
+
+  function checkProductCart(id) {
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    if (!cart) {
+      cart = {
+        products: [],
+        totalPrice: 0,
+      };
+    }
+    let newCart = cart.products.filter((elem) => elem.item.id === id);
+    return newCart.length > 0 ? true : false;
+  }
 
   async function getProducts() {
     let { data } = await axios.get("http://localhost:8000/products");

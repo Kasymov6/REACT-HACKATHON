@@ -35,20 +35,12 @@
 /* p {
   font-size: 20px;
 } */
-<<<<<<< HEAD
 .main-video2 {
-  /* position: absolute; */
-=======
-.main-video2{
->>>>>>> 7336f240570a3d85ee209258ce37b1210bf84363
   top: 1000px;
   left: 0;
   width: 100%;
   z-index: -100;
 }
-<<<<<<< HEAD
-=======
-.main-title{
+.main-title {
   font-size: 30px;
 }
->>>>>>> 7336f240570a3d85ee209258ce37b1210bf84363

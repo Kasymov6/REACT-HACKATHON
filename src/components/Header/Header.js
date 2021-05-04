@@ -13,34 +13,22 @@ const Header = () => {
         <div className="container">
           <div className="main-header">
             <div className="left-side">
-                <Link to="/">
-                  <p className="header-p">Meню</p>
-                </Link>
-                <Link to="">
-                  <p className="header-p">Часы</p>
-                </Link>
-                <Link to="">
-                  <p className="header-p">Мир ROLEX</p>
-                </Link>                 
-                <Link to="">                  
-                  <p className="header-p">Поиск дестрибьютера</p>
-                </Link>
-<<<<<<< HEAD
-              </p>
-              <Link to="/products">
+              <Link to="/">
+                <p className="header-p">Meню</p>
+              </Link>
+              <Link to="">
                 <p className="header-p">Часы</p>
               </Link>
-              <p className="header-p">
-                <p>Мир ROLEX</p>
-              </p>
-
-              <p className="header-p">Поиск дестрибьютера</p>
-=======
->>>>>>> 7336f240570a3d85ee209258ce37b1210bf84363
+              <Link to="">
+                <p className="header-p">Мир ROLEX</p>
+              </Link>
+              <Link to="">
+                <p className="header-p">Поиск дестрибьютера</p>
+              </Link>
               <div className="mid">
                 <Link to="/">
-                <img className="mid-img" src={rolexLogo} alt="rolex-logo" />
-                <h2>ROLEX</h2>
+                  <img className="mid-img" src={rolexLogo} alt="rolex-logo" />
+                  <h2>ROLEX</h2>
                 </Link>
               </div>
             </div>

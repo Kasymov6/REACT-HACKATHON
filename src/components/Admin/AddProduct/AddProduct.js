@@ -10,6 +10,7 @@ const AddProduct = () => {
     secondDescription: "",
     secondImg: "",
     price: "",
+    video: "",
   });
   const { postNewProduct } = useContext(productContext);
 
@@ -31,6 +32,7 @@ const AddProduct = () => {
       secondDescription: "",
       secondImg: "",
       price: "",
+      video: "",
     });
   };
 
@@ -92,6 +94,15 @@ const AddProduct = () => {
         type="text"
         placeholder="Цена"
       />
+      <input
+        className="inp-add"
+        value={product.video}
+        name="video"
+        onChange={handleValues}
+        type="text"
+        placeholder="Видео"
+      />
+
       <button className="btn-add" onClick={handleClick}>
         Добавить
       </button>

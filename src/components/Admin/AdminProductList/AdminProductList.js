@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react";
+import { useHistory } from "react-router";
 import { productContext } from "../../../context/ProductContext";
 import "../../Products/ProductList.css";
 import AdminProductCard from "../AdminProductCard/AdminProductCard";
@@ -9,13 +10,14 @@ const AdminProductList = () => {
     productContext
   );
 
+  const history = useHistory();
   const arr = [];
   for (let i = 1; i <= allPages; i++) {
     arr.push(i);
   }
-
+  console.log(history);
   useEffect(() => {
-    getProducts();
+    getProducts(history);
   }, []);
 
   return (
@@ -23,15 +25,8 @@ const AdminProductList = () => {
       <div className="list">
         {productsData.length > 0 &&
           productsData.map((item) => (
-            <AdminProductCard key={item.id} item={item} />
+            <AdminProductCard history={history} key={item.id} item={item} />
           ))}
-      </div>
-      <div className="pagination">
-        {arr.map((page) => (
-          <button className="pageBtn" onClick={() => setPage(page)}>
-            {page}
-          </button>
-        ))}
       </div>
     </div>
   );

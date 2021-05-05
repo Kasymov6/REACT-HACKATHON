@@ -14,7 +14,6 @@ import OrderBuyForm from "./components/OrderBuyForm/OrderBuyForm";
 import PaymentForm from "./components/Pay/Pay";
 import Admin from "./components/Admin/Tabs/Tabs";
 import ProductDetails from "./components/Products/ProductDetails";
-import ProductsList from "./components/Products/ProductList";
 import ProductMain from "./components/Products/ProductMain";
 
 const Routes = () => {

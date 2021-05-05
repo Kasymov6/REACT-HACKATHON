@@ -26,15 +26,23 @@ const ProductDetails = (props) => {
                       <h1 className="ditails-title">{productDetails.title}</h1>
                     </div>
                     <div className="details">
-                      <p className="box-desc">{productDetails.description}</p>
-                      <img src={productDetails.img} alt="product-img" />
-                      <h2>{productDetails.subTitle}</h2>
-                      <p className="box-desc">
+                      <div classNam="description-subTitle">
+                        <h2 className="details-description">{productDetails.description}</h2>
+                        <p className="details-subTitle">{productDetails.subTitle}</p>
+                      </div>
+                      <div className="img-description">
+                        <img className="details-img" src={productDetails.secondImg} />
+                      </div>
+                      <div>
+                        
+                        <p className="details-secondDescription">
                         {productDetails.secondDescription}
                         {productDetails.type}
-                      </p>
-                      <img src={productDetails.secondImg} />
-                      <p>{productDetails.price}$</p>
+                        </p>
+                      </div>
+                      
+                      
+                      {/* <p>{productDetails.price}$</p> */}
                     </div>
                   </>
                 ) : (

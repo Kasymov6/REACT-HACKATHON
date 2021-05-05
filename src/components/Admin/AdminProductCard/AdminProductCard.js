@@ -108,14 +108,14 @@ const ProductCard = ({ item }) => {
                             <div className="info-card1">
                               <h4>{item.title}</h4>
                               <p className="box-desc">{item.description}</p>
-                              <h4>{item.subTitle}</h4>
+                              {/* <h4>{item.subTitle}</h4> */}
                               <p className="box-desc">
-                                {item.secondDescription}
+                                {/* {item.secondDescription} */}
                               </p>
                               <p>{item.price}$</p>
                             </div>
                             <div className="btns-card1"></div>
-                            <img src={item.secondImg} />
+                            {/* <img src={item.secondImg} /> */}
                             <video
                               loop
                               muted

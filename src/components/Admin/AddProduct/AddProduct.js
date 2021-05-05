@@ -9,6 +9,7 @@ const AddProduct = () => {
     img: "",
     subTitle: "",
     secondDescription: "",
+    type: "",
     secondImg: "",
     price: "",
     video: "",
@@ -31,6 +32,7 @@ const AddProduct = () => {
       img: "",
       subTitle: "",
       secondDescription: "",
+      type: "",
       secondImg: "",
       price: "",
       video: "",
@@ -78,6 +80,14 @@ const AddProduct = () => {
         onChange={handleValues}
         type="text"
         placeholder="Второе описание"
+      />
+      <input
+        className="inp-add"
+        value={product.title}
+        name="type"
+        onChange={handleValues}
+        type="text"
+        placeholder="Тип"
       />
       <input
         className="inp-add"

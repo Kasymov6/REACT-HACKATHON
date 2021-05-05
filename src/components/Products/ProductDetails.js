@@ -5,6 +5,7 @@ import { productContext } from "../../context/ProductContext";
 const ProductDetails = (props) => {
   const { getProductDetails, productDetails } = useContext(productContext);
   const id = props.match.params.id;
+  console.log(id);
   useEffect(() => {
     getProductDetails(id);
   }, []);
@@ -23,6 +24,7 @@ const ProductDetails = (props) => {
                     <h2>{productDetails.subTitle}</h2>
                     <p className="box-desc">
                       {productDetails.secondDescription}
+                      {productDetails.type}
                     </p>
                     <img src={productDetails.secondImg} />
                     <p>{productDetails.price}$</p>

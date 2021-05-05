@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useReducer, useState } from "react";
 import {
   calcSubPrice,
   calcTotalPrice,
@@ -23,8 +23,6 @@ const reducer = (state = INIT_STATE, action) => {
       };
     case "GET_PRODUCT_DETAILS":
       return { ...state, productDetails: action.payload };
-    // case "SEARCH":
-    //   return { ...state, searchData: action.payload };
     case "GET_CART":
       return { ...state, cart: action.payload };
     case "CHANGE_CART_COUNT":
@@ -38,12 +36,14 @@ const ProductContextProvider = ({ children }) => {
   const [page, setPage] = useState("");
 
   async function getProducts(history) {
+    console.log(history);
     const search = new URLSearchParams(history.location.search);
-    search.set("_limit", 4);
+    search.set("_limit", 3);
     history.push(`${history.location.pathname}?${search.toString()}`);
     let res = await axios.get(
       `http://localhost:8000/products?_limit=3&${window.location.search}`
     );
+    console.log(res);
     dispatch({
       type: "GET_PRODUCTS",
       payload: res,
@@ -107,6 +107,14 @@ const ProductContextProvider = ({ children }) => {
     localStorage.setItem("cart", JSON.stringify(cart));
     getCart();
   }
+  function deleteCart(id) {
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    cart.products = cart.product.filter((elem) => {
+      if (elem.item.id !== id) {
+        return elem;
+      }
+    });
+  }
 
   function checkProductCart(id) {
     let cart = JSON.parse(localStorage.getItem("cart"));
@@ -124,20 +132,13 @@ const ProductContextProvider = ({ children }) => {
     axios.post("http://localhost:8000/products", product);
   }
 
-  async function getProducts() {
-    let data = await axios.get(`http://localhost:8000/products`);
-    dispatch({
-      type: "GET_PRODUCTS",
-      payload: data,
-    });
-  }
-
   async function getProductDetails(id) {
     let { data } = await axios.get(`http://localhost:8000/products/${id}`);
     dispatch({
       type: "GET_PRODUCT_DETAILS",
       payload: data,
     });
+    console.log(data);
   }
 
   async function saveProduct(id, newProduct) {
@@ -145,16 +146,6 @@ const ProductContextProvider = ({ children }) => {
     getProductDetails(id);
     getProducts();
   }
-
-  // async function search(value) {
-  //   let { data } = await axios.get(
-  //     `http://localhost:8000/products?q=${value}&_limit=3`
-  //   );
-  //   dispatch({
-  //     type: "GET_PRODUCTS",
-  //     payload: data,
-  //   });
-  // }
 
   async function deleteProduct(id) {
     return await axios.delete(`http://localhost:8000/products/${id}`);
@@ -173,7 +164,6 @@ const ProductContextProvider = ({ children }) => {
         getProductDetails,
         saveProduct,
         deleteProduct,
-        // search,
         setPage,
         addProductToCart,
         changeProductCount,

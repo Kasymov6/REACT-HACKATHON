@@ -14,9 +14,9 @@
 .cart > img:hover {
   transform: scale(0.9);
 }
-.cardPrice{
-  margin-top: -10px;
-}
+/* .cardPrice{
+  margin-top: 0px;
+} */
 /* .alert {
   transition: 0.7s;
   height: 100px;
@@ -32,7 +32,8 @@
   height: 40px;
   border: none;
   background-color: white;
-  z-index: 20;
+  /* z-index: 20; */
+  cursor: pointer;
 }
 .shoppingCart {
   width: 20px;
@@ -41,15 +42,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: -17px;
+  margin-top: -7px;
 }
 .infoMore{
   border: none;
   background-color: white;
   cursor: pointer;
 }
-.cardTitle{
-  margin-top: -13px;
-}
+/* .cardTitle{
+  margin-top: -15px;
+} */
 
 /* --------------END-CARD-------------------- */

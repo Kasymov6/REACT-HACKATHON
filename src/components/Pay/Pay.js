@@ -1,5 +1,6 @@
 import React from "react";
-import Cards from "react-credit-cards";
+// import Cards from "react-credit-cards";
+import Cards from "react-credit-cards"
 import "react-credit-cards/es/styles-compiled.css";
 import "./Pay.css";
 import { Link } from "react-router-dom";

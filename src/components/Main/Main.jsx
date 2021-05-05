@@ -1,7 +1,8 @@
 import React from "react";
 import "./Main.css";
+import "../../components/Header/Header.css";
 import videoMP4 from "../../assets/video/new-datejust-cover-video.webm";
-import videoMp4 from "../../assets/video/Rolex Submariner.mp4";
+// import videoMp4 from "../../assets/video/Rolex Submariner.mp4";
 const Main = () => {
   return (
     <div>

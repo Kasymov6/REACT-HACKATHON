@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&display=swap');
+
+.cart2{
+    margin: 0 auto;
+    /* display: flex;
+    flex-direction: column; */
+}
+/* .pop{
+    display: flex;
+    flex-direction: column;
+} */
+.main-card1{
+    width: 900px;
+    height: 300px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    margin: 50px auto;
+    display: flex;
+}
+.img-card1{
+    width: 300px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img-card1>img{
+    width: 250px;
+}
+.info-card1{
+    width: 400px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+
+}
+.details_btns{
+    width: 200px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.btns-sho1p{
+    height: 50px;
+    width: 100px;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    margin: 10px;
+    transition: 0.7s;
+}
+.btns-sho1p:hover{
+    background-color: rgb(199, 197, 197);
+    transition: 0.7s;
+}
+.car1{
+    display: flex;
+    flex-direction: column;
+}
+.edit-textareas {
+    display: flex;
+    margin: auto;
+  }
+
+.second-area{
+    margin-left: 60px;
+}

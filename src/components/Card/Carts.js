@@ -12,49 +12,48 @@ const Cart = ({ item }) => {
   }, []);
   console.log(cart);
   return (
-    <div className="cart">
+    <div className="car">
       {cart.products ? (
-        <div>
-          <table>
-            <thead>
-              <tr>
-                <th>Image</th>
-                <th>Title</th>
-                <th>Price</th>
-                <th>Count</th>
-                <th>SubPrice</th>
-              </tr>
-            </thead>
-            <tbody>
+        <div className="cart1">
+            <div className="all-cards">
               {cart.products.map((product) => (
-                <tr key={product.item.id}>
-                  <td>
+                <div className="main-card" key={product.item.id}>
+                  <div className="img-card">
                     <img
-                      style={{ width: "50px" }}
                       src={product.item.img}
                       alt="product-img"
                     />
-                  </td>
-                  <td>{product.item.title}</td>
-                  <td>{product.item.price}</td>
-                  <td>
-                    <input
+                  </div>
+                  <div className="info-card">
+                    <h3 className="h3">{product.item.title}</h3>
+                    <p className="opisanie">{product.item.subTitle}</p>
+                    <div className="inp-and-price">
+                    <input className="td"
                       type="number"
                       onChange={(e) =>
                         changeProductCount(e.target.value, product.item.id)
                       }
                       value={product.item.count}
                     />
-                  </td>
-                  <td>{product.subPrice}</td>
-                </tr>
+                    <p>Price:{product.item.price}</p>
+                    </div>
+                  </div>
+                  <div className="btns-card">
+                    <button className="btns-shop">Info</button>
+                    <button className="btns-shop">Delete</button>
+                  </div>
+                  <div>
+                    
+                  </div>
+                </div>
               ))}
-            </tbody>
-          </table>
-          <h4>Total:{calcTotalPrice(cart.products)}</h4>
-          <Link to="/order">
-            <button>Купить</button>
-          </Link>
+            </div>
+            <div className="totalPrice">
+              <h4>Total:{calcTotalPrice(cart.products)}</h4>
+              <Link to="/order">
+                <button>Купить</button>
+              </Link>
+            </div>
         </div>
       ) : (
         <CircularProgress />

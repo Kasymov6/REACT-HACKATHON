@@ -56,9 +56,9 @@ i {
   color: white;
   margin-right: 7px;
 }
-/* .mid {
-  float:right;
-} */
+.mid {
+  margin-left: 150px;
+}
 .mid-img {
   width: 100px;
 }
@@ -114,6 +114,11 @@ i {
 .menu__btn > span::after{
   content: '';
   top: 8px;
+}
+.ham-menu{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #menu__toggle:checked ~ .menu__btn > span{

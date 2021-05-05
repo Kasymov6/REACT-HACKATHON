@@ -27,7 +27,7 @@ const Header = () => {
       <div className="header">
         <div className="container">
           <div className="main-header">
-            <div>
+            <div className="ham-menu">
             <div class="hamburger-menu">
               <input type="checkbox" id="menu__toggle"/>
               <label for="menu__toggle" class="menu__btn">

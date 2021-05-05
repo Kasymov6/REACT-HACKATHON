@@ -3,7 +3,7 @@
   width: 353px;
   height: 490px;
   background-color: white;
-  /* border: 1px solid rgba(0, 0,0, 0.1);  */
+  margin: 30px;
 }
 .cart > img {
   width: 353px;
@@ -14,25 +14,12 @@
 .cart > img:hover {
   transform: scale(0.9);
 }
-/* .cardPrice{
-  margin-top: 0px;
-} */
-/* .alert {
-  transition: 0.7s;
-  height: 100px;
-  margin-top: -25px;
-}
-.alert:hover {
-  margin-top: -30px;
-  transition: 0.7s;
-} */
 .shop-btn {
   margin: 5px 15px 0 0;
   border-radius: 30px;
   height: 40px;
   border: none;
   background-color: white;
-  /* z-index: 20; */
   cursor: pointer;
 }
 .shoppingCart {
@@ -49,8 +36,5 @@
   background-color: white;
   cursor: pointer;
 }
-/* .cardTitle{
-  margin-top: -15px;
-} */
 
 /* --------------END-CARD-------------------- */

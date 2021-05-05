@@ -79,6 +79,7 @@ const ProductContextProvider = ({ children }) => {
     newProduct.subPrice = calcSubPrice(newProduct);
     cart.totalPrice = calcTotalPrice(cart.products);
     localStorage.setItem("cart", JSON.stringify(cart));
+    getCart()
   }
 
   function getCart() {
@@ -109,26 +110,17 @@ const ProductContextProvider = ({ children }) => {
     localStorage.setItem("cart", JSON.stringify(cart));
     getCart();
   }
-  function deleteCart(id) {
-    let cart = JSON.parse(localStorage.getItem("cart"));
-    cart.products = cart.product.filter((elem) => {
-      if (elem.item.id !== id) {
-        return elem;
-      }
-    });
-  }
-
-  function checkProductCart(id) {
-    let cart = JSON.parse(localStorage.getItem("cart"));
-    if (!cart) {
-      cart = {
-        products: [],
-        totalPrice: 0,
-      };
+  function checkProductCart(id){
+    let cart=JSON.parse(localStorage.getItem('cart'))
+    if(!cart){
+        cart={
+            products:[],
+            totalPrice:0
+        }
     }
-    let newCart = cart.products.filter((elem) => elem.item.id === id);
-    return newCart.length > 0 ? true : false;
-  }
+    let newCart =cart.products.filter(elem=>elem.item.id===id)
+    return newCart.length> 0 ? true : false
+}
 
   function postNewProduct(product) {
     axios.post("http://localhost:8000/products", product);
@@ -171,7 +163,7 @@ const ProductContextProvider = ({ children }) => {
         changeProductCount,
         checkProductCart,
         getCart,
-        deleteCart,
+        
       }}
     >
       {children}

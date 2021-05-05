@@ -14,17 +14,16 @@
 .cart > img:hover {
   transform: scale(0.9);
 }
-.shop-btn {
+/* .shop-btn {
   margin: 5px 15px 0 0;
   border-radius: 30px;
   height: 40px;
   border: none;
-  background-color: white;
   cursor: pointer;
-}
-.shoppingCart {
+} */
+/* .shoppingCart {
   width: 20px;
-}
+} */
 .price-shop {
   display: flex;
   justify-content: space-between;

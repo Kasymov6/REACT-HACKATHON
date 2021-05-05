@@ -1,11 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
+import IconButton from '@material-ui/core/IconButton';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import "./ProductCard.css";
 import { Link } from "react-router-dom";
-import shoppingCart from "../../assets/image/shopping.svg";
 import { productContext } from "../../context/ProductContext";
 
 const ProductCard = (props, { item }) => {
-  const { addProductToCart } = useContext(productContext);
+  const { addProductToCart,checkProductCart } = useContext(productContext);
+  useEffect(()=>{
+    checkProductCart()
+  },[])
   return (
     <div className="cart-wrap">
         <div className="cart">
@@ -18,8 +22,9 @@ const ProductCard = (props, { item }) => {
               <button className="infoMore">Подробнее</button>
             </Link>
             
-            <button onClick={()=>addProductToCart(props.item)} className="shop-btn"><img className="shoppingCart" src={shoppingCart}/>
-            </button>
+            <IconButton onClick={()=>addProductToCart(props.item)} color={checkProductCart(props.item.id)?"secondary":"primary"}>
+            <ShoppingCartIcon />
+            </IconButton>
           </div>
         </div>
       </div>

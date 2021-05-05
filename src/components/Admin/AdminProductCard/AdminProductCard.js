@@ -94,6 +94,7 @@ const ProductCard = ({ item }) => {
                           <th>subTitle</th>
                           <th>Image</th>
                           <th>secondDescription</th>
+                          <th>Category</th>
                           <th>secondImg</th>
                           <th>price</th>
                         </tr>
@@ -105,6 +106,8 @@ const ProductCard = ({ item }) => {
                           <img src={item.img} alt="product-img" />
                           <h2>{item.subTitle}</h2>
                           <p className="box-desc">{item.secondDescription}</p>
+                          <p className="box-desc">{item.type}</p>
+
                           <img src={item.secondImg} />
                           <p>{item.price}$</p>
                         </tr>

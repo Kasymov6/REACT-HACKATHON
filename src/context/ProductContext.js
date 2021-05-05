@@ -107,6 +107,14 @@ const ProductContextProvider = ({ children }) => {
     localStorage.setItem("cart", JSON.stringify(cart));
     getCart();
   }
+  function deleteCart(id) {
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    cart.products = cart.product.filter((elem) => {
+      if (elem.item.id !== id) {
+        return elem;
+      }
+    });
+  }
 
   function checkProductCart(id) {
     let cart = JSON.parse(localStorage.getItem("cart"));
@@ -123,14 +131,6 @@ const ProductContextProvider = ({ children }) => {
   function postNewProduct(product) {
     axios.post("http://localhost:8000/products", product);
   }
-
-  // async function getProducts() {
-  //   let data = await axios.get(`http://localhost:8000/products`);
-  //   dispatch({
-  //     type: "GET_PRODUCTS",
-  //     payload: data,
-  //   });
-  // }
 
   async function getProductDetails(id) {
     let { data } = await axios.get(`http://localhost:8000/products/${id}`);

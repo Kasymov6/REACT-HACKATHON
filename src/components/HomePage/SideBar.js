@@ -22,11 +22,11 @@ const Sidebar = ({ history }) => {
   const { getProducts } = useContext(productContext);
 
   const [sliderValue, setSliderValue] = useState(getSlider());
-  const [memory, setMemory] = useState(getMemory());
+  const [category, setCategory] = useState(getCategory());
 
-  function getMemory() {
+  function getCategory() {
     const search = new URLSearchParams(history.location.search);
-    return search.get("category");
+    return search.get("type");
   }
 
   function getSlider() {
@@ -41,35 +41,55 @@ const Sidebar = ({ history }) => {
     getProducts(history);
     setSliderValue(value);
   }
-  const handleChangeMemory = (e) => {
+  const handleChangeCategory = (e) => {
     if (e.target.value === "All") {
-      history.push(`${history.location.pathname.replace("category")}`);
+      history.push(`${history.location.pathname.replace("type")}`);
       getProducts(history);
-      setMemory(e.target.value);
+      setCategory(e.target.value);
       return;
     }
     const search = new URLSearchParams(history.location.search);
-    search.set("category", e.target.value);
+    search.set("type", e.target.value);
     history.push(`${history.location.pathname}?${search.toString()}`);
     getProducts(history);
-    setMemory(e.target.value);
+    setCategory(e.target.value);
   };
   return (
     <Grid item m={3}>
       <Paper className={classes.paper}>
         <FormControl component="fieldset">
-          <FormLabel component="legend">Memory</FormLabel>
+          <FormLabel component="legend">Категории</FormLabel>
           <RadioGroup
-            value={memory}
-            onChange={handleChangeMemory}
-            aria-label="memory"
-            name="memory"
+            value={category}
+            onChange={handleChangeCategory}
+            aria-label="сategory"
+            name="сategory"
           >
-            <FormControlLabel value="500" control={<Radio />} label="500" />
-            <FormControlLabel value="1000" control={<Radio />} label="1000" />
-            <FormControlLabel value="2000" control={<Radio />} label="2000" />
-            <FormControlLabel value="3000" control={<Radio />} label="3000" />
-            <FormControlLabel value="4000" control={<Radio />} label="4000" />
+            <FormControlLabel
+              value="Механические"
+              control={<Radio />}
+              label="Механические"
+            />
+            <FormControlLabel
+              value="Кварцевые"
+              control={<Radio />}
+              label="Кварцевые"
+            />
+            <FormControlLabel
+              value="Металические"
+              control={<Radio />}
+              label="Металические"
+            />
+            <FormControlLabel
+              value="Красивые"
+              control={<Radio />}
+              label="Красивые"
+            />
+            <FormControlLabel
+              value="Крутые"
+              control={<Radio />}
+              label="Крутые"
+            />
             <FormControlLabel value="All" control={<Radio />} label="ALL" />
           </RadioGroup>
         </FormControl>

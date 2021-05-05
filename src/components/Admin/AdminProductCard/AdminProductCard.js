@@ -2,16 +2,14 @@ import "./AdminProductCard.css";
 import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { productContext } from "../../../context/ProductContext";
-// import ReactPlayer from "react-player";
+import ReactPlayer from "react-player";
+import { Card } from "@material-ui/core";
 const ProductCard = ({ item }) => {
   const id = item.id;
   const history = useHistory();
-  const {
-    getProductDetails,
-    productDetails,
-    saveProduct,
-    deleteProduct,
-  } = useContext(productContext);
+  const { getProductDetails, saveProduct, deleteProduct } = useContext(
+    productContext
+  );
   const [editStatus, setEditStatus] = useState(false);
 
   const [editedProduct, setEditedProduct] = useState({});
@@ -30,10 +28,6 @@ const ProductCard = ({ item }) => {
     getProductDetails(id);
   };
 
-  // useEffect(() => {
-  //   getProductDetails(id);
-  // }, [editStatus, id]);
-
   const handleDelete = () => {
     deleteProduct(id).then(() => {
       history.push("/");
@@ -41,7 +35,6 @@ const ProductCard = ({ item }) => {
   };
   return (
     <div>
-      {/* {productDetails ? ( */}
       <div>
         <div className="pop">
           <div className="container">

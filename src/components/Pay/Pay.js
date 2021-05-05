@@ -4,7 +4,9 @@ import Cards from "react-credit-cards"
 import "react-credit-cards/es/styles-compiled.css";
 import "./Pay.css";
 import { Link } from "react-router-dom";
+import { productContext } from "../../context/ProductContext";
 
+// const { clearProductCart } = useContext(productContext);
 export default class PaymentForm extends React.Component {
   state = {
     cvc: "",
@@ -18,6 +20,9 @@ export default class PaymentForm extends React.Component {
     this.setState({ focus: e.target.name });
   };
 
+  clearProductCart = () => {
+    localStorage.clear("cart");
+  };
   handleInputChange = (e) => {
     const { name, value } = e.target;
 
@@ -70,7 +75,9 @@ export default class PaymentForm extends React.Component {
           />
 
           <Link to="/">
-            <button className="pay_now">Pay now</button>
+            <button onClick={this.clearProductCart} className="pay_now">
+              Pay now
+            </button>
           </Link>
         </form>
       </div>

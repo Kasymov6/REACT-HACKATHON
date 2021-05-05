@@ -1,10 +1,7 @@
-.pageBtn {
-    border-radius: 50px;
-}
 
 .pageBtn:hover {
     background-color: gray;
 }
-.pagination{
+/* .pagination{
     margin: 300px 650px 0;
-}
+} */

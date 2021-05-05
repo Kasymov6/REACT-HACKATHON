@@ -1,20 +1,21 @@
-import { red } from "@material-ui/core/colors";
 import axios from "axios";
 import React, { useEffect, useReducer, useState } from "react";
+import { useHistory } from "react-router";
 import {
     calcSubPrice,
     calcTotalPrice,
     getCountProductsInCart,
 } from "../components/helpers/calcPrice";
+import { JSON_API } from "../components/helpers/constants";
+
 export const productContext = React.createContext();
 
 const INIT_STATE = {
     productsData: [],
     productDetails: null,
+    paginationPages: 1,
     cart: {},
-    searchData: [],
-    allPages: 0,
-    cartLength: getCountProductsInCart,
+    cartLength: getCountProductsInCart(),
 };
 
 const reducer = (state = INIT_STATE, action) => {
@@ -22,9 +23,12 @@ const reducer = (state = INIT_STATE, action) => {
         case "GET_PRODUCTS":
             return {
                 ...state,
-                productsData: action.payload,
-                allPages: action.num,
+                productsData: action.payload.data,
+                paginationPages: Math.ceil(
+                    action.payload.headers["x-total-count"] / 4
+                ),
             };
+
         case "GET_PRODUCT_DETAILS":
             return { ...state, productDetails: action.payload };
         // case "SEARCH":
@@ -39,8 +43,24 @@ const reducer = (state = INIT_STATE, action) => {
 };
 
 const ProductContextProvider = ({ children }) => {
+    const history = useHistory();
+
     const [state, dispatch] = useReducer(reducer, INIT_STATE);
-    const [page, setPage] = useState("");
+
+    async function getProducts(history) {
+        const search = new URLSearchParams(history.location.search);
+        search.set("_limit", 4);
+        history.push(`${history.location.pathname}?${search.toString()}`);
+
+        let res = await axios.get(
+            `${JSON_API}?_limit=4&${window.location.search}`
+        );
+        console.log(res);
+        dispatch({
+            type: "GET_PRODUCTS",
+            payload: res,
+        });
+    }
 
     function addProductToCart(product) {
         console.log(product);
@@ -72,6 +92,11 @@ const ProductContextProvider = ({ children }) => {
         newProduct.subPrice = calcSubPrice(newProduct);
         cart.totalPrice = calcTotalPrice(cart.products);
         localStorage.setItem("cart", JSON.stringify(cart));
+
+        dispatch({
+            type: "CHANGE_CART_COUNT",
+            payload: cart.products.length,
+        });
     }
 
     function getCart() {
@@ -113,25 +138,6 @@ const ProductContextProvider = ({ children }) => {
         let newCart = cart.products.filter((elem) => elem.item.id === id);
         return newCart.length > 0 ? true : false;
     }
-    useEffect(() => {
-        getProducts();
-    }, [page]);
-
-    function postNewProduct(product) {
-        axios.post("http://localhost:8000/products", product);
-    }
-
-    async function getProducts() {
-        let res = await axios.get(
-            `http://localhost:8000/products?_page=${page}&_limit=3`
-        );
-        let num = Math.ceil(res.headers["x-total-count"] / 3);
-        dispatch({
-            type: "GET_PRODUCTS",
-            payload: res.data,
-            num: num,
-        });
-    }
 
     async function getProductDetails(id) {
         let { data } = await axios.get(`http://localhost:8000/products/${id}`);
@@ -144,17 +150,7 @@ const ProductContextProvider = ({ children }) => {
     async function saveProduct(id, newProduct) {
         await axios.patch(`http://localhost:8000/products/${id}`, newProduct);
         getProductDetails(id);
-        getProducts();
-    }
-
-    async function search(value) {
-        let { data } = await axios.get(
-            `http://localhost:8000/products?q=${value}&_limit=3`
-        );
-        dispatch({
-            type: "GET_PRODUCTS",
-            payload: data,
-        });
+        getProducts(history);
     }
 
     async function deleteProduct(id) {
@@ -165,17 +161,14 @@ const ProductContextProvider = ({ children }) => {
         <productContext.Provider
             value={{
                 productsData: state.productsData,
+                paginationPages: state.paginationPages,
                 productDetails: state.productDetails,
                 cart: state.cart,
                 searchData: state.searchData,
-                allPages: state.allPages,
-                postNewProduct,
                 getProducts,
                 getProductDetails,
                 saveProduct,
                 deleteProduct,
-                search,
-                setPage,
                 addProductToCart,
                 changeProductCount,
                 checkProductCart,

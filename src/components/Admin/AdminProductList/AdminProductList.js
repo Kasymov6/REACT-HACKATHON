@@ -1,21 +1,34 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import Pagination from "@material-ui/lab/Pagination";
+import { useHistory } from "react-router";
 import { productContext } from "../../../context/ProductContext";
 import "../../Products/ProductList.css";
 import AdminProductCard from "../AdminProductCard/AdminProductCard";
 import "./AdminProductList.css";
 
 const AdminProductList = () => {
-    const { getProducts, productsData, allPages, setPage } = useContext(
+    const history = useHistory();
+    const { getProducts, productsData, paginationPages } = useContext(
         productContext
     );
 
-    const arr = [];
-    for (let i = 1; i <= allPages; i++) {
-        arr.push(i);
+    const [page, setPage] = useState(getPage());
+
+    function getPage() {
+        const search = new URLSearchParams(history.location.search);
+        return search.get("_page");
     }
 
+    const handlePage = (e, page) => {
+        const search = new URLSearchParams(history.location.search);
+        search.set("_page", page);
+        history.push(`${history.location.pathname}?${search.toString()}`);
+        setPage(page);
+        getProducts(history);
+    };
+
     useEffect(() => {
-        getProducts();
+        getProducts(history);
     }, []);
 
     return (
@@ -26,13 +39,12 @@ const AdminProductList = () => {
                         <AdminProductCard key={item.id} item={item} />
                     ))}
             </div>
-            <div className="pagination">
-                {arr.map((page) => (
-                    <button className="pageBtn" onClick={() => setPage(page)}>
-                        {page}
-                    </button>
-                ))}
-            </div>
+            <Pagination
+                page={+page}
+                onChange={handlePage}
+                count={paginationPages}
+                color="primary"
+            />
         </div>
     );
 };

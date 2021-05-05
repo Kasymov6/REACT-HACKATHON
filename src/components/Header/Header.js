@@ -1,22 +1,29 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Header.css";
 import rolexLogo from "../../assets/image/Rolex-logo.png";
 import { Link } from "react-router-dom";
 import { authContext } from "../../context/AuthContext";
 import { productContext } from "../../context/ProductContext";
+import { useHistory } from "react-router";
 
 const Header = () => {
     const { isAuth } = useContext(authContext);
-    const [productSearch, setProductSearch] = useState("");
-    const { search } = useContext(productContext);
+    const history = useHistory(); //// poisk
+    const { getProducts } = useContext(productContext);
+    const [searchValue, setSearchValue] = useState(getSearchValue());
 
-    function handleSeacrh(e) {
-        setProductSearch(e.target.value);
+    const handleValue = (e) => {
+        const search = new URLSearchParams(history.location.search); // poisk
+        search.set("q", e.target.value);
+        history.push(`${history.location.pathname}?${search.toString()}`);
+        setSearchValue(e.target.value);
+        getProducts(history);
+    };
+
+    function getSearchValue() {
+        const search = new URLSearchParams(history.location.search);
+        return search.get("q");
     }
-
-    useEffect(() => {
-        search(productSearch);
-    }, [productSearch]);
 
     return (
         <div className="popi">
@@ -52,8 +59,9 @@ const Header = () => {
                                 <i className="fas fa-search"></i>
                                 <p className="header-p">
                                     <input
-                                        onChange={handleSeacrh}
+                                        onChange={handleValue}
                                         placeholder="Поиск"
+                                        value={searchValue}
                                     ></input>
                                 </p>
                             </div>

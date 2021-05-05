@@ -37,7 +37,7 @@ const Header = () => {
                             <Link to="/filter">
                                 <p className="header-p">Часы</p>
                             </Link>
-                            <Link to="">
+                            <Link to="partners">
                                 <p className="header-p">Мир ROLEX</p>
                             </Link>
                             <Link to="">

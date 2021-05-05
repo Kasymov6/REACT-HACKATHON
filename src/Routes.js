@@ -17,6 +17,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import ProductList from "./components/Products/ProductList";
 import Footer from "./components/Footer/Footer";
 import Filter from "./components/Filter/Filter";
+import Partners from "./components/Partners/Partners";
 
 const Routes = () => {
     return (
@@ -33,6 +34,7 @@ const Routes = () => {
                         <Route exact path="/filter" component={Filter} />
                         <Route exact path="/signup" component={SignUp} />
                         <Route exact path="/cart" component={Carts} />
+                        <Route exact path="/partners" component={Partners} />
                         <Route
                             exact
                             path="/details/:id"

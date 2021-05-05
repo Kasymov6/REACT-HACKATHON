@@ -1,13 +1,59 @@
-.container {
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+.contain {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.text {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    font-family: "Open Sans", sans-serif;
 }
 
-.inp-add {
-    margin: 50px;
-    margin-left: 5px;
+.text-h2 {
+    padding-left: 20px;
+    font-family: "Open Sans", sans-serif;
 }
 
-.btn-add {
+.opis {
+    background-image: url("https://img4.goodfon.ru/wallpaper/nbig/9/a3/rolex-the-rolex-oyster-perpetual-sea-dweller-ref-watch-vremi.jpg");
+    background-repeat: no-repeat;
+    width: 2000px;
+    height: 800px;
+}
+
+.zagol {
+    padding-top: 40px;
+    font-size: 25px;
+}
+
+.h3-zag {
+    padding-bottom: 20px;
+}
+
+.pag {
+    padding-bottom: 200px;
+    font-family: "Open Sans", sans-serif;
+}
+
+.img-all {
+    width: 1300px;
+    height: 500px;
+    transition: 1s;
+}
+
+.img-all:hover {
+    width: 1400px;
+    height: 550px;
+    transition: 1s;
+}
+
+.btn {
     width: 220px;
     height: 50px;
     border: none;
@@ -20,7 +66,7 @@
     border-radius: 10px;
 }
 
-.btn-add:before {
+.btn:before {
     content: "";
     background: linear-gradient(
         45deg,
@@ -48,19 +94,19 @@
     border-radius: 10px;
 }
 
-.btn-add:active {
+.btn:active {
     color: #000;
 }
 
-.btn-add:active:after {
+.btn:active:after {
     background: transparent;
 }
 
-.btn-add:hover:before {
+.btn:hover:before {
     opacity: 1;
 }
 
-.btn-add:after {
+.btn:after {
     z-index: -1;
     content: "";
     position: absolute;

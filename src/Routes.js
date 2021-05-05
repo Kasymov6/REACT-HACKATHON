@@ -15,6 +15,7 @@ import PaymentForm from "./components/Pay/Pay";
 import Admin from "./components/Admin/Tabs/Tabs";
 import ProductDetails from "./components/Products/ProductDetails";
 import ProductsList from "./components/Products/ProductList";
+import ProductMain from "./components/Products/ProductMain";
 
 const Routes = () => {
   return (
@@ -24,12 +25,12 @@ const Routes = () => {
           <Header />
           <Switch>
             <Route exact path="/" component={HomePage} />
-            <Route exact path="/product" component={ProductsList} />
+            <Route exact path="/products" component={ProductMain} />
             <Route exact path="/admin" component={Admin} />
             <Route exact path="/login" component={SignIn} />
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/cart" component={Carts} />
-            <Route exact path="details/id" component={ProductDetails} />
+            <Route exact path="/details/:id" component={ProductDetails} />
             <Route exact path="/order" component={OrderBuyForm} />
             <Route exact path="/buy" component={PaymentForm} />
           </Switch>

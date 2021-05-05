@@ -4,6 +4,7 @@ import { productContext } from "../../context/ProductContext";
 const ProductDetails = (props) => {
   const { getProductDetails, productDetails } = useContext(productContext);
   const id = props.match.params.id;
+  console.log(id);
   useEffect(() => {
     getProductDetails(id);
   }, []);

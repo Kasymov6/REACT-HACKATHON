@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useReducer } from "react";
 import { useHistory } from "react-router";
 import {
     calcSubPrice,
@@ -9,7 +9,6 @@ import {
 import { JSON_API } from "../components/helpers/constants";
 
 export const productContext = React.createContext();
-
 const INIT_STATE = {
     productsData: [],
     productDetails: null,
@@ -17,7 +16,6 @@ const INIT_STATE = {
     cart: {},
     cartLength: getCountProductsInCart(),
 };
-
 const reducer = (state = INIT_STATE, action) => {
     switch (action.type) {
         case "GET_PRODUCTS":
@@ -61,43 +59,27 @@ const ProductContextProvider = ({ children }) => {
             payload: res,
         });
     }
+    let newProduct = {
+        item: product,
+        count: 1,
+        subPrice: 0,
+    };
 
-    function addProductToCart(product) {
-        console.log(product);
-        let cart = JSON.parse(localStorage.getItem("cart"));
-        if (!cart) {
-            cart = {
-                products: [],
-                totalPrice: 0,
-            };
-        }
-        let newProduct = {
-            item: product,
-            count: 1,
-            subPrice: 0,
-        };
-
-        let filteredCart = cart.products.filter(
-            (elem) => elem.item.id === product.id
+    let filteredCart = cart.products.filter(
+        (elem) => elem.item.id === product.id
+    );
+    if (filteredCart.length > 0) {
+        cart.products = cart.products.filter(
+            (elem) => elem.item.id !== product.id
         );
-        if (filteredCart.length > 0) {
-            cart.products = cart.products.filter(
-                (elem) => elem.item.id !== product.id
-            );
-        } else {
-            cart.products.push(newProduct);
-        }
-
-        console.log(newProduct);
-        newProduct.subPrice = calcSubPrice(newProduct);
-        cart.totalPrice = calcTotalPrice(cart.products);
-        localStorage.setItem("cart", JSON.stringify(cart));
-
-        dispatch({
-            type: "CHANGE_CART_COUNT",
-            payload: cart.products.length,
-        });
+    } else {
+        cart.products.push(newProduct);
     }
+
+    console.log(newProduct);
+    newProduct.subPrice = calcSubPrice(newProduct);
+    cart.totalPrice = calcTotalPrice(cart.products);
+    localStorage.setItem("cart", JSON.stringify(cart));
 
     function getCart() {
         let cart = JSON.parse(localStorage.getItem("cart"));
@@ -126,6 +108,14 @@ const ProductContextProvider = ({ children }) => {
         localStorage.setItem("cart", JSON.stringify(cart));
         getCart();
     }
+    function deleteCart(id) {
+        let cart = JSON.parse(localStorage.getItem("cart"));
+        cart.products = cart.product.filter((elem) => {
+            if (elem.item.id !== id) {
+                return elem;
+            }
+        });
+    }
 
     function checkProductCart(id) {
         let cart = JSON.parse(localStorage.getItem("cart"));
@@ -138,6 +128,9 @@ const ProductContextProvider = ({ children }) => {
         let newCart = cart.products.filter((elem) => elem.item.id === id);
         return newCart.length > 0 ? true : false;
     }
+    function postNewProduct(product) {
+        axios.post("http://localhost:8000/products", product);
+    }
 
     async function getProductDetails(id) {
         let { data } = await axios.get(`http://localhost:8000/products/${id}`);
@@ -145,12 +138,13 @@ const ProductContextProvider = ({ children }) => {
             type: "GET_PRODUCT_DETAILS",
             payload: data,
         });
+        console.log(data);
     }
 
     async function saveProduct(id, newProduct) {
         await axios.patch(`http://localhost:8000/products/${id}`, newProduct);
         getProductDetails(id);
-        getProducts(history);
+        getProducts();
     }
 
     async function deleteProduct(id) {
@@ -169,15 +163,15 @@ const ProductContextProvider = ({ children }) => {
                 getProductDetails,
                 saveProduct,
                 deleteProduct,
-                addProductToCart,
+                // addProductToCart,
                 changeProductCount,
                 checkProductCart,
                 getCart,
+                saveProduct,
             }}
         >
             {children}
         </productContext.Provider>
     );
 };
-
 export default ProductContextProvider;

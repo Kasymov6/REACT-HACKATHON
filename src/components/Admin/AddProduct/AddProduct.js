@@ -9,6 +9,7 @@ const AddProduct = () => {
         img: "",
         subTitle: "",
         secondDescription: "",
+        type: "",
         secondImg: "",
         price: "",
         video: "",

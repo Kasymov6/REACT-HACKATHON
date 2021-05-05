@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&display=swap');
+.cart1{
+    margin: 0 auto;
+}
 .all-cards{
     display: flex;
     flex-direction: column;
@@ -12,7 +15,7 @@
 }
 .img-card{
     width: 300px;
-    height: 300px;
+    /* height: 300px; */
     background-color: white;
     display: flex;
     justify-content: center;
@@ -23,17 +26,20 @@
 }
 .info-card{
     width: 400px;
-    height: 300px;
+    /* height: 300px; */
     background-color: white;
     display: flex;
     flex-direction: column;
 
 }
-h3, .opisanie{
+.h3, .opisanie{
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
 }
-h3{
+.opisanie{
+    margin-top: 30px;
+}
+.h3{
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 .btns-card{
@@ -56,3 +62,15 @@ h3{
     background-color: rgb(199, 197, 197);
     transition: 0.7s;
 }
+.inp-and-price{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+}
+.td{
+    /* border: none; */
+    width: 30px;
+}
+/* .totalPrice{
+    
+} */

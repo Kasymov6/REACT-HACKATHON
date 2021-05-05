@@ -4,8 +4,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { productContext } from "../../context/ProductContext";
 import ProductCard from "./ProductCard";
-import SideBar from "../HomePage/SideBar";
-const ProductsList = (props) => {
+
+const ProductsList = () => {
   const { getProducts, productsData, paginationPages } = useContext(
     productContext
   );
@@ -29,7 +29,6 @@ const ProductsList = (props) => {
   console.log("hello");
   return (
     <>
-      {/* <SideBar {...props} /> */}
       <Grid container spacing={3}>
         {productsData.map((item) => (
           <ProductCard item={item} key={item.id} />

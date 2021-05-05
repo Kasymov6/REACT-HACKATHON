@@ -36,81 +36,85 @@ const ProductCard = ({ item }) => {
   return (
     <div>
       <div>
-        <div className="wraper">
+        <div className="pop">
           <div className="container">
-            <div className="main-left">
-              <div className="main-box">
+            <div className="">
+              <div className="car1">
+              <div className="car12">
+                      <div className="cart2">
+                        <div className="all-cards1">
+                          <div className="main-card1">
                 {editStatus ? (
                   <div className="edit-textareas">
-                    <textarea name="title" onChange={handleValue}>
-                      {item.title}
-                    </textarea>
-                    <textarea
-                      name="description"
-                      onChange={handleValue}
-                      className="box-desc"
-                    >
-                      {item.description}
-                    </textarea>
-                    <textarea name="img" onChange={handleValue}>
-                      {item.img}
-                    </textarea>
-                    <textarea name="subTitle" onChange={handleValue}>
-                      {item.subTitle}
-                    </textarea>
-                    <textarea
-                      name="secondDescription"
-                      onChange={handleValue}
-                      className="box-desc"
-                    >
-                      {item.secondDescription}
-                    </textarea>
-                    <textarea name="secondImg" onChange={handleValue}>
-                      {item.secondImg}
-                    </textarea>
-                    <textarea
-                      name="price"
-                      onChange={handleValue}
-                      className="box-desc"
-                    >
-                      {item.price}
-                    </textarea>
-                    <textarea
-                      name="video"
-                      onChange={handleValue}
-                      className="box-desc"
-                    >
-                      {item.video}
-                    </textarea>
+                    <div className="first-area">
+                        <p>Title:</p>
+                        <textarea name="title" onChange={handleValue}>
+                          {item.title}
+                        </textarea>
+                        <p>Description:</p>
+                        <textarea
+                          name="description"
+                          onChange={handleValue}
+                          className="box-desc"
+                        >
+                          {item.description}
+                        </textarea>
+                        <p>First image:</p>
+                        <textarea name="img" onChange={handleValue}>
+                          {item.img}
+                        </textarea>
+                        <p>SubTitle:</p>
+                        <textarea name="subTitle" onChange={handleValue}>
+                          {item.subTitle}
+                        </textarea>
+                    </div>
+                    <div className="second-area">
+                        <p>Second description:</p>
+                        <textarea
+                          name="secondDescription"
+                          onChange={handleValue}
+                          className="box-desc"
+                        >
+                          {item.secondDescription}
+                        </textarea>
+                        <p>Second image:</p>
+                        <textarea name="secondImg" onChange={handleValue}>
+                          {item.secondImg}
+                        </textarea>
+                        <p>Price:</p>
+                        <textarea
+                          name="price"
+                          onChange={handleValue}
+                          className="box-desc"
+                        >
+                          {item.price}
+                        </textarea>
+                        <p>Video:</p>
+                        <textarea
+                          name="video"
+                          onChange={handleValue}
+                          className="box-desc"
+                        >
+                          {item.video}
+                        </textarea>
+                    </div>
                   </div>
                 ) : (
                   <>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>Video</th>
-                          <th>Title</th>
-                          <th>description</th>
-                          <th>subTitle</th>
-                          <th>Image</th>
-                          <th>secondDescription</th>
-                          <th>Category</th>
-                          <th>secondImg</th>
-                          <th>price</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <h1>{item.title}</h1>
-                          <p className="box-desc">{item.description}</p>
-                          <img src={item.img} alt="product-img" />
-                          <h2>{item.subTitle}</h2>
-                          <p className="box-desc">{item.secondDescription}</p>
-                          <p className="box-desc">{item.type}</p>
+                            <div className="img-card1">
+                              <img src={item.img} alt="product-img" />
+                            </div>
+                            <div className="info-card1">
+                              <h4>{item.title}</h4>
+                              <p className="box-desc">{item.description}</p>
+                              <h4>{item.subTitle}</h4>
+                              <p className="box-desc">{item.secondDescription}</p>
+                              <p>{item.price}$</p>
+                            </div>
+                            <div className="btns-card1">
 
+                            </div>
                           <img src={item.secondImg} />
-                          <p>{item.price}$</p>
-                        </tr>
                         <video
                           loop
                           muted
@@ -119,24 +123,27 @@ const ProductCard = ({ item }) => {
                           className="fullscreen-bg__video"
                         >
                           <source src={item.video} type="video/mp4" />
-                        </video>
-                      </tbody>
-                    </table>
+                        </video>                    
                   </>
                 )}
                 <div className="details_btns">
                   {editStatus ? (
-                    <button onClick={handleSave}>Сохранить</button>
+                    <button className="btns-sho1p" onClick={handleSave}>Сохранить</button>
                   ) : (
-                    <button onClick={() => handleEdit(item.id)}>
+                    <button className="btns-sho1p" onClick={() => handleEdit(item.id)}>
                       Редактировать
                     </button>
                   )}
-                  <button onClick={handleDelete} className="btn-delete">
+                  <button className="btns-sho1p" onClick={handleDelete}>
                     Удалить
                   </button>
                 </div>
               </div>
+              </div>
+              </div></div></div>
+              {/* : (
+        "Details"
+      )} */}
             </div>
           </div>
         </div>

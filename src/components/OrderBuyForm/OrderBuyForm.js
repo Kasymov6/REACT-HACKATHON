@@ -6,30 +6,37 @@ import { productContext } from "../../context/ProductContext";
 const OrderBuyForm = () => {
   const { cart } = useContext(productContext);
   return (
+    <div className="container">
     <div className="forms-css">
-      <input name="name" className="form-inp" placeholder="Имя" type="text" />
+      <p className="data-info">Name:</p>
+      <input 
+        name="name"
+        className="form-inp" 
+        type="text" 
+        />
+      <p className="data-info">Last name:</p>
       <input
         name="lastName"
         className="form-inp"
-        placeholder="Фамилия"
         type="text"
       />
+      <p className="data-info">E-mail:</p>      
       <input
         name="email"
         className="form-inp"
-        placeholder="E-Mail"
         type="text"
       />
+      <p className="data-info">Phone number:</p>      
       <input
         name="number"
         className="form-inp"
-        placeholder="Номер"
         type="number"
       />
       <p>Total: {calcTotalPrice(cart.products)}</p>
       <Link to="/buy">
         <button className="form-btn">Заказать</button>
       </Link>
+    </div>
     </div>
   );
 };

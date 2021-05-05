@@ -3,6 +3,8 @@ import "./Header.css";
 import rolexLogo from "../../assets/image/Rolex-logo.png";
 import { Link, useHistory } from "react-router-dom";
 import { productContext } from "../../context/ProductContext";
+import Profile from "./prifile.js"
+import Navbar from "./Navbar"
 
 const Header = () => {
   const history = useHistory();
@@ -25,47 +27,46 @@ const Header = () => {
       <div className="header">
         <div className="container">
           <div className="main-header">
-            <div className="left-side">
-              <Link to="/">
-                <p className="header-p">Meню</p>
-              </Link>
-              <Link to="/products">
-                <p className="header-p">Часы</p>
-              </Link>
-              <Link to="">
-                <p className="header-p">Мир ROLEX</p>
-              </Link>
-              <Link to="">
-                <p className="header-p">Поиск дестрибьютера</p>
-              </Link>
+            <div className="ham-menu">
+            <div class="hamburger-menu">
+              <input type="checkbox" id="menu__toggle"/>
+              <label for="menu__toggle" class="menu__btn">
+              <span></span>
+              </label>
+                  <ul className="navbar__menu menu__box">
+                    <Link to="/" className="navbar__item">
+                      <li className="header-p">Meню</li>
+                    </Link>
+                    <Link to="/products" className="navbar__item">
+                      <li className="header-p">Часы</li>
+                    </Link>
+                    <Link to="" className="navbar__item">
+                      <li className="header-p">Мир ROLEX</li>
+                    </Link>
+                    </ul>
+              </div>
               <div className="mid">
                 <Link to="/">
                   <img className="mid-img" src={rolexLogo} alt="rolex-logo" />
-                  <h2>ROLEX</h2>
+                  <h2 className="rolex">ROLEX</h2>
                 </Link>
               </div>
-            </div>
+              </div>
+            
             <div className="right-side">
               <div className="icon">
                 <i className="fas fa-search"></i>
-                <p className="header-p">
-                  <input
-                    onChange={handleValue}
-                    value={searchValue}
-                    placeholder="Поиск"
-                  ></input>
+                <p className="header-p2">
+                  <input className="search-inp"  placeholder="Поиск"></input>
                 </p>
               </div>
-              {/* {isAuth ? (
-                button{выйти}
-              ) : (
-                button{войти}
-              )} */}
               <div className="icon">
                 <i className="far fa-heart"></i>
                 <Link to="/cart">
-                  <p className="header-p">Ваша подборка</p>
+                  <p className="header-p2">Ваша подборка</p>
                 </Link>
+                
+                <Profile/>
               </div>
             </div>
           </div>

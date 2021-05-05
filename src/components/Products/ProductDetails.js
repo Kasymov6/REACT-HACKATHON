@@ -23,6 +23,7 @@ const ProductDetails = (props) => {
                     <h2>{productDetails.subTitle}</h2>
                     <p className="box-desc">
                       {productDetails.secondDescription}
+                      {productDetails.type}
                     </p>
                     <img src={productDetails.secondImg} />
                     <p>{productDetails.price}$</p>

@@ -163,7 +163,7 @@ const ProductContextProvider = ({ children }) => {
         changeProductCount,
         checkProductCart,
         getCart,
-        deleteCart,
+        
       }}
     >
       {children}

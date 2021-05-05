@@ -55,6 +55,8 @@ const Sidebar = ({ history }) => {
     setCategory(e.target.value);
   };
   return (
+    <div className="container">
+
     <Grid item m={3}>
       <Paper className={classes.paper}>
         <FormControl component="fieldset">
@@ -105,6 +107,7 @@ const Sidebar = ({ history }) => {
         </Grid>
       </Paper>
     </Grid>
+    </div>
   );
 };
 

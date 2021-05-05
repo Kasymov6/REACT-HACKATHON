@@ -29,6 +29,13 @@ const ProductsList = () => {
   console.log("hello");
   return (
     <>
+    <div className="uiu">
+    <video loop muted autoPlay className="fullscreen-bg__video-details">
+        <source className="productDetails" src="https://content.rolex.com/dam/watches/family-pages/day-date/video/cover/classic-watches-day-date-cover-video.mp4" type="video/mp4" />
+   </video>
+   <div className="tot">
+     <div className="container">
+        <p className="watch-rolex">ЧАСЫ ROLEX — ЭТО ВНИМАНИЕ К КАЖДОЙ ДЕТАЛИ ПРИ СБОРКЕ.</p>
       <Grid container spacing={3}>
         {productsData.map((item) => (
           <ProductCard item={item} key={item.id} />
@@ -40,6 +47,9 @@ const ProductsList = () => {
         count={paginationPages}
         color="primary"
       />
+     </div>
+   </div>
+    </div>
     </>
   );
 };

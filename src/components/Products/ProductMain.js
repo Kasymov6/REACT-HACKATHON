@@ -5,8 +5,8 @@ import ProductsList from "./ProductList";
 const Main = (props) => {
   return (
     <div>
-      <Sidebar {...props} />
       <ProductsList />
+      <Sidebar {...props} />
     </div>
   );
 };

@@ -5,3 +5,22 @@
   grid-auto-rows: 200px;
   margin-top: 50px;
 }
+
+.productDetails{
+  width: 100%;
+  
+  }
+  .fullscreen-bg__video-details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -100;
+  }
+  .tot{
+    margin-top: 700px;
+  }
+.watch-rolex{
+  font-size: 30px;
+  text-align: center;
+}

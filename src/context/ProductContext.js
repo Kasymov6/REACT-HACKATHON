@@ -19,7 +19,7 @@ const reducer = (state = INIT_STATE, action) => {
       return {
         ...state,
         productsData: action.payload.data,
-        paginationPages: Math.ceil(action.payload.headers["x-total-count"] / 4),
+        paginationPages: Math.ceil(action.payload.headers["x-total-count"] / 3),
       };
     case "GET_PRODUCT_DETAILS":
       return { ...state, productDetails: action.payload };
@@ -42,7 +42,7 @@ const ProductContextProvider = ({ children }) => {
     search.set("_limit", 4);
     history.push(`${history.location.pathname}?${search.toString()}`);
     let res = await axios.get(
-      `http://localhost:8000/products?_limit=4&${window.location.search}`
+      `http://localhost:8000/products?_limit=3&${window.location.search}`
     );
     dispatch({
       type: "GET_PRODUCTS",

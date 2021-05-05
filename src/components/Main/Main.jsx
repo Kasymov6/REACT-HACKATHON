@@ -8,7 +8,7 @@ const Main = () => {
     <div>
       <div className="main-video">
         <video loop muted autoPlay className="fullscreen-bg__video">
-          <source src={videoMP4} type="video/webm" />
+          <source className="videoMP4" src={videoMP4} type="video/webm" />
         </video>
       </div>
       <h5 className="main-title">

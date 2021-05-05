@@ -27,16 +27,23 @@ const Header = () => {
       <div className="header">
         <div className="container">
           <div className="main-header">
-            <div className="left-side">
-              <Link to="/">
-                <p className="header-p">Meню</p>
-              </Link>
-              <Link to="/products">
-                <p className="header-p">Часы</p>
-              </Link>
-              <Link to="">
-                <p className="header-p">Мир ROLEX</p>
-              </Link>
+            <div>
+            <div class="hamburger-menu">
+              <input type="checkbox" id="menu__toggle"/>
+              <label for="menu__toggle" class="menu__btn">
+              <span></span>
+              </label>
+                  <ul className="navbar__menu menu__box">
+                    <Link to="/" className="navbar__item">
+                      <li className="header-p">Meню</li>
+                    </Link>
+                    <Link to="/products" className="navbar__item">
+                      <li className="header-p">Часы</li>
+                    </Link>
+                    <Link to="" className="navbar__item">
+                      <li className="header-p">Мир ROLEX</li>
+                    </Link>
+                    </ul>
               </div>
               <div className="mid">
                 <Link to="/">
@@ -44,12 +51,13 @@ const Header = () => {
                   <h2 className="rolex">ROLEX</h2>
                 </Link>
               </div>
+              </div>
             
             <div className="right-side">
               <div className="icon">
                 <i className="fas fa-search"></i>
                 <p className="header-p2">
-                  <input className="search-inp" onChange={handleSeacrh} placeholder="Поиск"></input>
+                  <input className="search-inp"  placeholder="Поиск"></input>
                 </p>
               </div>
               <div className="icon">
@@ -57,7 +65,6 @@ const Header = () => {
                 <Link to="/cart">
                   <p className="header-p2">Ваша подборка</p>
                 </Link>
-                <div className="navbar"><Navbar/></div>
                 
                 <Profile/>
               </div>

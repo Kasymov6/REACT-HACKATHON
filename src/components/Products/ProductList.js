@@ -1,37 +1,45 @@
-import React, { useContext, useEffect } from "react";
+import { Grid } from "@material-ui/core";
+import Pagination from "@material-ui/lab/Pagination";
+import React, { useContext, useEffect, useState } from "react";
+import { useHistory } from "react-router";
 import { productContext } from "../../context/ProductContext";
 import ProductCard from "./ProductCard";
-import "./ProductList.css";
-const ProductList = () => {
-    const { getProducts, productsData, setPage, allPages } = useContext(
-        productContext
-    );
+const ProductsList = (props) => {
+  const { getProducts, productsData, paginationPages } = useContext(
+    productContext
+  );
+  const history = useHistory();
+  const [page, setPage] = useState(getPage());
 
-    const arr = [];
-    for (let i = 1; i <= allPages; i++) {
-        arr.push(i);
-    }
-
-    useEffect(() => {
-        getProducts();
-    }, []);
-
-    return (
-        <div className="wrap">
-            <div className="list">
-                {productsData.map((item) => (
-                    <ProductCard key={item.id} item={item} />
-                ))}
-            </div>
-            <div className="pagination">
-                {arr.map((page) => (
-                    <button className="pageBtn" onClick={() => setPage(page)}>
-                        {page}
-                    </button>
-                ))}
-            </div>
-        </div>
-    );
+  function getPage() {
+    const search = new URLSearchParams(history.location.search);
+    return search.get("_page");
+  }
+  const handlePage = (e, page) => {
+    const search = new URLSearchParams(history.location.search);
+    search.set("_page", page);
+    history.push(`${history.location.pathname}?${search.toString()}`);
+    setPage(page);
+    getProducts(history);
+  };
+  useEffect(() => {
+    getProducts(history);
+  }, []);
+  return (
+    <>
+      <Grid container spacing={3}>
+        {productsData.map((item) => (
+          <ProductCard item={item} key={item.id} />
+        ))}
+      </Grid>
+      <Pagination
+        page={+page}
+        onChange={handlePage}
+        count={paginationPages}
+        color="primary"
+      />
+    </>
+  );
 };
 
-export default ProductList;
+export default ProductsList;

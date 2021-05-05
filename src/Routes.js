@@ -9,13 +9,12 @@ import HomePage from "./components/HomePage/HomePage";
 import ProductContextProvider, {
   productContext,
 } from "./context/ProductContext";
-import Admin from "./components/Admin/Tabs";
-import ProductDetails from "./components/Products/ProductDetails";
-import PrivateRoute from "./components/PrivateRoute";
-import ProductList from "./components/Products/ProductList";
 import Footer from "./components/Footer/Footer";
 import OrderBuyForm from "./components/OrderBuyForm/OrderBuyForm";
 import PaymentForm from "./components/Pay/Pay";
+import Admin from "./components/Admin/Tabs/Tabs";
+import ProductDetails from "./components/Products/ProductDetails";
+import ProductsList from "./components/Products/ProductList";
 
 const Routes = () => {
   return (
@@ -25,14 +24,12 @@ const Routes = () => {
           <Header />
           <Switch>
             <Route exact path="/" component={HomePage} />
-            <PrivateRoute path="/admin" component={Admin} />
-            {/* <PrivateRoute path="/order" component={Order} /> */}
-            <Route exact path="/products" component={ProductList} />
-            {/* <Route exact path="/admin" component={Admin} /> */}
+            <Route exact path="/product" component={ProductsList} />
+            <Route exact path="/admin" component={Admin} />
             <Route exact path="/login" component={SignIn} />
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/cart" component={Carts} />
-            <Route exact path="/details/:id" component={ProductDetails} />
+            <Route exact path="details/id" component={ProductDetails} />
             <Route exact path="/order" component={OrderBuyForm} />
             <Route exact path="/buy" component={PaymentForm} />
           </Switch>

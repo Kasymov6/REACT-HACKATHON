@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useReducer, useState } from "react";
+import { useHistory } from "react-router";
 import {
   calcSubPrice,
   calcTotalPrice,
@@ -34,6 +35,7 @@ const reducer = (state = INIT_STATE, action) => {
 const ProductContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
   const [page, setPage] = useState("");
+  const history = useHistory();
 
   async function getProducts(history) {
     console.log(history);
@@ -43,7 +45,6 @@ const ProductContextProvider = ({ children }) => {
     let res = await axios.get(
       `http://localhost:8000/products?_limit=3&${window.location.search}`
     );
-    console.log(res);
     dispatch({
       type: "GET_PRODUCTS",
       payload: res,
@@ -96,6 +97,7 @@ const ProductContextProvider = ({ children }) => {
   }
 
   function changeProductCount(count, id) {
+    if (count < 1) return;
     let cart = JSON.parse(localStorage.getItem("cart"));
     cart.products = cart.products.map((elem) => {
       if (elem.item.id === id) {
@@ -133,10 +135,10 @@ const ProductContextProvider = ({ children }) => {
     console.log(data);
   }
 
-  async function saveProduct(id, newProduct) {
+  async function saveProduct(id, newProduct, history) {
     await axios.patch(`http://localhost:8000/products/${id}`, newProduct);
     getProductDetails(id);
-    getProducts();
+    getProducts(history);
   }
 
   async function deleteProduct(id) {
@@ -161,6 +163,7 @@ const ProductContextProvider = ({ children }) => {
         changeProductCount,
         checkProductCart,
         getCart,
+        deleteCart,
       }}
     >
       {children}

@@ -1,12 +1,11 @@
 import axios from "axios";
-import React, { useReducer } from "react";
+import React, { useReducer, useState } from "react";
 import { useHistory } from "react-router";
 import {
     calcSubPrice,
     calcTotalPrice,
     getCountProductsInCart,
 } from "../components/helpers/calcPrice";
-import { JSON_API } from "../components/helpers/constants";
 
 export const productContext = React.createContext();
 const INIT_STATE = {
@@ -23,7 +22,7 @@ const reducer = (state = INIT_STATE, action) => {
                 ...state,
                 productsData: action.payload.data,
                 paginationPages: Math.ceil(
-                    action.payload.headers["x-total-count"] / 4
+                    action.payload.headers["x-total-count"] / 3
                 ),
             };
 
@@ -41,47 +40,24 @@ const reducer = (state = INIT_STATE, action) => {
 };
 
 const ProductContextProvider = ({ children }) => {
+    const [state, dispatch] = useReducer(reducer, INIT_STATE);
+    const [page, setPage] = useState("");
     const history = useHistory();
 
-    const [state, dispatch] = useReducer(reducer, INIT_STATE);
-
     async function getProducts(history) {
+        console.log(history);
         const search = new URLSearchParams(history.location.search);
-        search.set("_limit", 4);
+        search.set("_limit", 3);
         history.push(`${history.location.pathname}?${search.toString()}`);
-
         let res = await axios.get(
-            `${JSON_API}?_limit=4&${window.location.search}`
+            `http://localhost:8000/products?_limit=3&${window.location.search}`
         );
-        console.log(res);
         dispatch({
             type: "GET_PRODUCTS",
             payload: res,
         });
     }
-    let newProduct = {
-        item: product,
-        count: 1,
-        subPrice: 0,
-    };
-
-    let filteredCart = cart.products.filter(
-        (elem) => elem.item.id === product.id
-    );
-    if (filteredCart.length > 0) {
-        cart.products = cart.products.filter(
-            (elem) => elem.item.id !== product.id
-        );
-    } else {
-        cart.products.push(newProduct);
-    }
-
-    console.log(newProduct);
-    newProduct.subPrice = calcSubPrice(newProduct);
-    cart.totalPrice = calcTotalPrice(cart.products);
-    localStorage.setItem("cart", JSON.stringify(cart));
-
-    function getCart() {
+    function addProductToCart(product) {
         let cart = JSON.parse(localStorage.getItem("cart"));
         if (!cart) {
             cart = {
@@ -89,13 +65,45 @@ const ProductContextProvider = ({ children }) => {
                 totalPrice: 0,
             };
         }
-        dispatch({
-            type: "GET_CART",
-            payload: cart,
-        });
+        let newProduct = {
+            item: product,
+            count: 1,
+            subPrice: 0,
+        };
+
+        let filteredCart = cart.products.filter(
+            (elem) => elem.item.id === product.id
+        );
+        if (filteredCart.length > 0) {
+            cart.products = cart.products.filter(
+                (elem) => elem.item.id !== product.id
+            );
+        } else {
+            cart.products.push(newProduct);
+        }
+
+        console.log(newProduct);
+        newProduct.subPrice = calcSubPrice(newProduct);
+        cart.totalPrice = calcTotalPrice(cart.products);
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        function getCart() {
+            let cart = JSON.parse(localStorage.getItem("cart"));
+            if (!cart) {
+                cart = {
+                    products: [],
+                    totalPrice: 0,
+                };
+            }
+            dispatch({
+                type: "GET_CART",
+                payload: cart,
+            });
+        }
     }
 
     function changeProductCount(count, id) {
+        if (count < 1) return;
         let cart = JSON.parse(localStorage.getItem("cart"));
         cart.products = cart.products.map((elem) => {
             if (elem.item.id === id) {
@@ -106,7 +114,7 @@ const ProductContextProvider = ({ children }) => {
         });
         cart.totalPrice = calcTotalPrice(cart.products);
         localStorage.setItem("cart", JSON.stringify(cart));
-        getCart();
+        // getCart();
     }
     function deleteCart(id) {
         let cart = JSON.parse(localStorage.getItem("cart"));
@@ -116,7 +124,6 @@ const ProductContextProvider = ({ children }) => {
             }
         });
     }
-
     function checkProductCart(id) {
         let cart = JSON.parse(localStorage.getItem("cart"));
         if (!cart) {
@@ -141,10 +148,10 @@ const ProductContextProvider = ({ children }) => {
         console.log(data);
     }
 
-    async function saveProduct(id, newProduct) {
+    async function saveProduct(id, newProduct, history) {
         await axios.patch(`http://localhost:8000/products/${id}`, newProduct);
         getProductDetails(id);
-        getProducts();
+        getProducts(history);
     }
 
     async function deleteProduct(id) {
@@ -155,19 +162,20 @@ const ProductContextProvider = ({ children }) => {
         <productContext.Provider
             value={{
                 productsData: state.productsData,
-                paginationPages: state.paginationPages,
                 productDetails: state.productDetails,
                 cart: state.cart,
                 searchData: state.searchData,
+                paginationPages: state.paginationPages,
+                postNewProduct,
                 getProducts,
                 getProductDetails,
                 saveProduct,
                 deleteProduct,
-                // addProductToCart,
+                setPage,
+                addProductToCart,
                 changeProductCount,
                 checkProductCart,
-                getCart,
-                saveProduct,
+                deleteCart,
             }}
         >
             {children}

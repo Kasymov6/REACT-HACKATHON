@@ -4,7 +4,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { productContext } from "../../context/ProductContext";
 import ProductCard from "./ProductCard";
-import SideBar from "../HomePage/SideBar";
+
 const ProductsList = (props) => {
     const { getProducts, productsData, paginationPages } = useContext(
         productContext

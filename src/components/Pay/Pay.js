@@ -5,7 +5,8 @@ import "./Pay.css";
 import { Link } from "react-router-dom";
 import { productContext } from "../../context/ProductContext";
 
-const { clearProductCart } = useContext(productContext);
+// const { clearProductCart } = useContext(productContext);
+
 export default class PaymentForm extends React.Component {
     state = {
         cvc: "",

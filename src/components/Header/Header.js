@@ -42,7 +42,10 @@ const Header = () => {
                                     >
                                         <li className="header-p">Часы</li>
                                     </Link>
-                                    <Link to="" className="navbar__item">
+                                    <Link
+                                        to="/partners"
+                                        className="navbar__item"
+                                    >
                                         <li className="header-p">Мир ROLEX</li>
                                     </Link>
                                 </ul>
